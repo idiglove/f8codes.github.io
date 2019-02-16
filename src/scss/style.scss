@@ -1,0 +1,105 @@
+.sticky-header{
+    height: 120px;
+}
+
+.header-root {
+    background-color: white;
+    height: 120px;
+}
+
+.header-container{
+    max-width: none !important;
+    margin: 0 10px 10px 10px;
+    padding: 20px !important;
+}
+
+.header-navbar {
+    float: right;
+}
+
+.main-navbar {
+    background-color: white;
+
+    a{
+        padding: 10px;
+        color: #b948ff;
+
+        &:hover {
+            color: gray;
+            text-decoration: none;
+        }
+    }
+}
+
+.content {
+    padding: 0 50px; 
+
+    h2 {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    #about {
+        p {
+            line-height: 30px;
+        }
+
+        .contact {
+            margin-top: 10px;
+            display: block;
+        }
+    }
+
+    .header-paragraph {
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .about-img-container {
+        text-align: center;
+    }
+
+    #education {
+        margin: 40px 0;
+
+        .education-content {
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+
+    #skills {
+        .skills {
+            margin: 20px 0 0 10px;
+        }
+
+        .skills-row{
+            margin-bottom: 20px;
+        }
+    }
+
+    #portfolio {
+        .portfolio-center {
+            text-align: center;
+        }
+
+        margin-bottom: 100px;
+    }
+}
+
+.timeline-horizontal{
+    .dot {
+        background-color: #b948ff;
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+    }
+
+    .line {
+        display: inline-block;
+        background: #b2c1ce;
+        height: 1px;
+        width: 90%;
+        margin-top: 5px;
+    }
+}
