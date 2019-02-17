@@ -42,6 +42,7 @@ class App extends Component {
                           <AnchorLink href="#education" offset="120">Education</AnchorLink>
                           <AnchorLink href="#skills" offset="120">Skills</AnchorLink>
                           <AnchorLink href="#portfolio" offset="120">Portfolio</AnchorLink>
+                          <a href="https://idiglove.github.io/faith-blog/">Blog</a>
                         </Nav>
                       </Navbar.Collapse>
                     </Navbar>
