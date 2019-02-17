@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/2.c1132648.jpg"
   },
   {
-    "revision": "b1bef750e15e728c9701",
-    "url": "/static/css/main.c6efec38.chunk.css"
+    "revision": "3ce5043420c2f5f1b925",
+    "url": "/static/css/main.1e461c1e.chunk.css"
   },
   {
     "revision": "fdfcfda2d9b1bf31db52",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/static/media/phingsdesserts2.adfbe21a.jpg"
   },
   {
-    "revision": "f84d22094e953bfc639e",
-    "url": "/static/js/2.f84d2209.chunk.js"
+    "revision": "5929717116d4fa2fddaf",
+    "url": "/static/js/2.59297171.chunk.js"
   },
   {
     "revision": "4da0634fa5040d6c8ccf7283b5a716b9",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/1.b970185a.jpg"
   },
   {
-    "revision": "b1bef750e15e728c9701",
-    "url": "/static/js/main.b1bef750.chunk.js"
+    "revision": "3ce5043420c2f5f1b925",
+    "url": "/static/js/main.3ce50434.chunk.js"
   },
   {
     "revision": "f06ea1d4a61d30270b98b8d837d1501d",
@@ -52,11 +52,11 @@ self.__precacheManifest = [
     "url": "/static/media/bullwingspage.bf43dfab.jpg"
   },
   {
-    "revision": "f84d22094e953bfc639e",
-    "url": "/static/css/2.d8998eb6.chunk.css"
+    "revision": "5929717116d4fa2fddaf",
+    "url": "/static/css/2.686d9490.chunk.css"
   },
   {
-    "revision": "f57929c19314bf0c1ccb062166afc716",
+    "revision": "54d9d40599b5d7e843b4085718b51f57",
     "url": "/index.html"
   }
 ];
