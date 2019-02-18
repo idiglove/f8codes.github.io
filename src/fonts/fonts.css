@@ -1,0 +1,29 @@
+
+
+
+
+@font-face {
+  font-family: "Segoe UI";
+    src: url("segoeuil.ttf") format("truetype"); /* Safari, Android, iOS */
+
+}
+
+@font-face {
+font-family: "Segoe UI Semibold";
+  src: url("seguisb.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
+@font-face {
+font-family: "Montserrat Regular";
+  src: url("Montserrat-Regular.otf") format("opentype"); /* Safari, Android, iOS */
+}
+
+@font-face {
+font-family: "Montserrat ExtraLight";
+  src: url("Montserrat-ExtraLight.otf") format("opentype"); /* Safari, Android, iOS */
+}
+
+@font-face {
+font-family: "Montserrat ExtraBold";
+  src: url("Montserrat-ExtraBold.otf") format("opentype"); /* Safari, Android, iOS */
+}

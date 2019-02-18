@@ -1,3 +1,7 @@
+body {
+    font-family: "Montserrat Regular", "sans-serif";
+}
+
 .sticky-header{
     height: 120px;
 }
@@ -7,10 +11,36 @@
     height: 120px;
 }
 
+.blog-header-title {
+    a {
+        color: #212529;
+
+        &:hover {
+            color: #212529;
+            text-decoration: none;
+        }
+    }
+}
+
 .header-container{
     max-width: none !important;
     margin: 0 10px 10px 10px;
     padding: 20px !important;
+
+    .blog-link {
+        text-align: right;
+
+        a {
+            color: #212529;
+            margin-right: 30px;
+            font-size: 20px;
+
+            &:hover {
+                color: #212529;
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 .header-navbar {
@@ -84,6 +114,32 @@
         }
 
         margin-bottom: 100px;
+    }
+
+    .main-title {
+        font-size: 32px;
+        color: #b948ff;
+        margin-bottom: 30px;
+    }
+
+    .post-count {
+        font-size: 20px;
+    }
+
+    .blog-title {
+        color: #212529;
+        font-size: 22px;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+            color: #b948ff;
+        }
+
+        .blog-date {
+            font-size: 15px;
+            color: gray;
+        }
     }
 }
 

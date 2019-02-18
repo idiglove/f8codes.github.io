@@ -4,7 +4,17 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "gatsby": "^2.1.4",
+    "gatsby-image": "^2.0.29",
+    "gatsby-plugin-manifest": "^2.0.17",
+    "gatsby-plugin-offline": "^2.0.23",
+    "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-source-filesystem": "^2.0.20",
+    "gatsby-transformer-remark": "^2.2.5",
+    "gatsby-transformer-sharp": "^2.1.13",
     "gh-pages": "^2.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-anchor-link-smooth-scroll": "^1.0.11",
     "react-bootstrap": "^1.0.0-beta.5",
@@ -15,13 +25,13 @@
     "react-sweet-progress": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "compile-sass": "sass src/scss/style.scss src/css/style.css",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -b master"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
+    "compile-sass": "sass src/scss/style.scss src/css/style.css"
   },
   "eslintConfig": {
     "extends": "react-app"
