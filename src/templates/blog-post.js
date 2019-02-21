@@ -1,9 +1,18 @@
 import React from "react";
 import Header from '../pages/header'
 import '../css/style.css';
+import Disqus from "disqus-react";
+import { graphql } from 'gatsby'
 
 export default ({ data }) => {
     const post = data.markdownRemark;
+    const disqusShortname = 'idiglove-github-io';
+    console.log(data)
+    const disqusConfig = {
+        url: process.env.PUBLIC_URL + post.fields.slug,
+        identifier: post.frontmatter.id,
+        title: post.frontmatter.title,
+    };
     return (
         <div>
             <Header/>
@@ -12,6 +21,12 @@ export default ({ data }) => {
                 <h1>{post.frontmatter.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
             </div>
+
+            <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
+                Comments
+            </Disqus.CommentCount>
+            {/* <p>{this.props.article.body}</p> */}
+            <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
         </div>
     );
 };
@@ -22,6 +37,11 @@ export const query = graphql`
             html
             frontmatter {
                 title
+                date(formatString: "DD MMMM, YYYY")
+                id
+            }
+            fields {
+                slug
             }
         }
     }
