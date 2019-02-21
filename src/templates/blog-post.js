@@ -7,7 +7,6 @@ import { graphql } from 'gatsby'
 export default ({ data }) => {
     const post = data.markdownRemark;
     const disqusShortname = 'idiglove-github-io';
-    console.log(data)
     const disqusConfig = {
         url: process.env.PUBLIC_URL + post.fields.slug,
         identifier: post.frontmatter.id,
