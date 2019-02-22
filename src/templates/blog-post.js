@@ -16,16 +16,16 @@ export default ({ data }) => {
         <div>
             <Header/>
 
-            <div className="content">
+            <div className="content blog-content">
                 <h1>{post.frontmatter.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            </div>
 
-            <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
-                Comments
-            </Disqus.CommentCount>
-            {/* <p>{this.props.article.body}</p> */}
-            <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+                <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
+                    Comments
+                </Disqus.CommentCount>
+                {/* <p>{this.props.article.body}</p> */}
+                <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+            </div>
         </div>
     );
 };

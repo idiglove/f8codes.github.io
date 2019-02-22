@@ -116,7 +116,7 @@ body {
         margin-bottom: 100px;
     }
 
-    .main-title {
+    .main-title, h1:first-child {
         font-size: 32px;
         color: #b948ff;
         margin-bottom: 30px;
@@ -124,6 +124,7 @@ body {
 
     .post-count {
         font-size: 20px;
+        color: gray;
     }
 
     .blog-title {
@@ -158,4 +159,8 @@ body {
         width: 90%;
         margin-top: 5px;
     }
+}
+
+.blog-content {
+    margin: 0 10%;
 }

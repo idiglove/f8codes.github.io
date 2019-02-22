@@ -2,6 +2,11 @@ body {
   font-family: "Montserrat Regular", "sans-serif";
 }
 
+pre code {
+  font-size: unset;
+  color: unset;
+}
+
 .sticky-header {
   height: 120px;
 }
@@ -93,13 +98,14 @@ body {
 .content #portfolio .portfolio-center {
   text-align: center;
 }
-.content .main-title {
+.content .main-title, .content h1:first-child {
   font-size: 32px;
   color: #b948ff;
   margin-bottom: 30px;
 }
 .content .post-count {
   font-size: 20px;
+  color: gray;
 }
 .content .blog-title {
   color: #212529;
@@ -127,6 +133,10 @@ body {
   height: 1px;
   width: 90%;
   margin-top: 5px;
+}
+
+.blog-content {
+  margin: 0 10%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -10,7 +10,7 @@ export default ({ data }) => {
 
             <Header/>
 
-            <div className="content">
+            <div className="content blog-content">
                 <h1 className="main-title">
                     Faith Blogs
                 </h1>
