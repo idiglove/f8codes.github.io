@@ -64,7 +64,7 @@ class App extends Component {
                                         I'm a professional Full Stack Web Developer. I've been coding full time since 2015.
                                         I'm experienced with front-end technologies like HTML, CSS, JS, Angular, React, Bootstrap, etc.
                                         But I have to say, I enjoy coding back-end more either using any of these: PHP, Zend Framework,
-                                        CodeIgniter, NodeJS, and of course, AWS services.
+                                        CodeIgniter, NodeJS, and of course, AWS services. I can also make mobile apps for Android and iOS using React Native.
                                     </p>
                                     <p className="header-sub-paragraph">
                                         Apart from coding, I also can do graphic design mostly with photo manipulation, web design and design layouts. In my free time,
@@ -73,7 +73,7 @@ class App extends Component {
                                     </p>
 
                                     <span className="contact"><b>Email: </b> faith.morante@gmail.com</span>
-                                    <span className="contact"><b>Phone: </b> +63 977 443 5879</span>
+                                    <span className="contact"><b>Phone: </b> +63 916 227 4287</span>
                                     <span className="contact"><b>Linkedin: </b> https://www.linkedin.com/in/faith-morante-3097871b/</span>
                                     <span className="contact"><b>Github: </b> https://github.com/idiglove</span>
                                 </Col>
