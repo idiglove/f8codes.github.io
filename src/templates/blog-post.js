@@ -8,7 +8,7 @@ export default ({ data }) => {
     const post = data.markdownRemark;
     const disqusShortname = 'idiglove-github-io';
     const disqusConfig = {
-        url: process.env.PUBLIC_URL + post.fields.slug,
+        url: process.env.PUBLIC_URL + post.frontmatter.path,
         identifier: post.frontmatter.id,
         title: post.frontmatter.title,
     };
@@ -30,18 +30,15 @@ export default ({ data }) => {
     );
 };
 
-export const query = graphql`
-    query BlogPostQuery($slug: String!) {
-        markdownRemark(fields: { slug: { eq: $slug } }) {
-            html
-            frontmatter {
-                title
-                date(formatString: "DD MMMM, YYYY")
-                id
-            }
-            fields {
-                slug
-            }
-        }
+export const pageQuery = graphql`
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        path
+        title
+      }
     }
-`;
+  }
+`
