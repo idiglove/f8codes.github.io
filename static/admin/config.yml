@@ -12,7 +12,6 @@ collections:
     create: true
     fields:
       - { name: path, label: Path }
-      - { name: id, label: ID }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }

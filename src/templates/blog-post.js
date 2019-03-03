@@ -8,14 +8,13 @@ export default ({ data }) => {
     const post = data.markdownRemark;
     const disqusShortname = 'idiglove-github-io';
     const disqusConfig = {
-        url: process.env.PUBLIC_URL + post.frontmatter.path,
-        identifier: post.frontmatter.id,
+        url: 'https://faithmorante.netlify.com' + post.frontmatter.path,
+        identifier: post.frontmatter.path,
         title: post.frontmatter.title,
     };
     return (
         <div>
             <Header/>
-
             <div className="content blog-content">
                 <h1>{post.frontmatter.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -38,7 +37,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
-        id
       }
     }
   }

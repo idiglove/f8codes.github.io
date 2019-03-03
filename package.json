@@ -2,7 +2,6 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://faithmorante.netlify.com",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
