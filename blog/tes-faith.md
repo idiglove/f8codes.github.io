@@ -1,6 +1,6 @@
 ---
-path: /blog/test-faith
+path: /blog/how-to-create-free-cms-with-netlify-cms-and-gatsby
 date: 2019-03-03T01:01:40.424Z
-title: tes faith
+title: How to create a free cms with Netlify CMS and Gatsby
 ---
-this is a test blog
+Coming soon!
