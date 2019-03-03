@@ -85,6 +85,11 @@ Push your commits to master. Go to Deploys tab in app.netlify.com. You will see 
 
 Once it is published, go to your site \`domain.netlify.com/admin/\` and blog away!
 
+## Authorization
+
+Follow this to authenticate your github account in the CMS: <https://www.netlify.com/docs/authentication-providers/#using-an-authentication-provider>
+
+
 
 
 Cheers!
