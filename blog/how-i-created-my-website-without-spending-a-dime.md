@@ -2,7 +2,7 @@
 path: "/blog/how-i-created-my-website-without-spending-a-dime"
 title: How I created my website without spending a dime
 date: "2019-02-21"
-id: 204041c6-bd7b-4945-b49a-1899bb9284d1
+id: /blog/how-i-created-my-website-without-spending-a-dime
 ---
 
 In this tutorial, I assume that you know the basics of web development. For styling and development I used ReactJS, Sass, Bootstrap, GatsbyJS and GraphQL. I deployed my website using Github Pages. You can google them up to know an overview about them.
