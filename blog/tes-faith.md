@@ -27,11 +27,13 @@ Run:
 
 In your gatsby-config.js, add this:
 
-> module.exports = {
->
->   **plugins: \[\`gatsby-plugin-netlify-cms\`],**
->
-> }
+``` 
+module.exports = {
+
+   **plugins: \[\`gatsby-plugin-netlify-cms\`],**
+
+ }
+```
 
 Create this file:
 `static/admin/config.yml`
