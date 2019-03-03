@@ -2,11 +2,6 @@ body {
   font-family: "Montserrat Regular", "sans-serif";
 }
 
-pre code {
-  font-size: unset;
-  color: unset;
-}
-
 .sticky-header {
   height: 120px;
 }
@@ -137,6 +132,9 @@ pre code {
 
 .blog-content {
   margin: 0 10%;
+}
+.blog-content h2 {
+  text-align: left;
 }
 
 /*# sourceMappingURL=style.css.map */
