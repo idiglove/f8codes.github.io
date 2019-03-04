@@ -14,20 +14,20 @@ export default ({ data }) => {
                 <h1 className="main-title">
                     Faith Blogs
                 </h1>
-                <h4 className="post-count">{data.allMarkdownRemark.totalCount} Posts</h4>
-                {data.allMarkdownRemark.edges.map(({ node }) => (
-                    <div key={node.id}>
+                <h4 className="post-count">{data.allFile.totalCount} Posts</h4>
+                {data.allFile.edges.map(({ node }) => (
+                    <div key={node.childMarkdownRemark.id}>
                         <Link
-                            to={node.frontmatter.path}
+                            to={node.childMarkdownRemark.frontmatter.path}
                             css={{ textDecoration: `none`, color: `inherit` }}
                             className="blog-title"
                         >
                             <h3 style={{ marginBottom: '4px' }}>
-                                {node.frontmatter.title}{" "}
-                                <span className="blog-date">— {node.frontmatter.date}</span>
+                                {node.childMarkdownRemark.frontmatter.title}{" "}
+                                <span className="blog-date">— {node.childMarkdownRemark.frontmatter.date}</span>
                             </h3>
                         </Link>
-                        <p>{node.excerpt}</p>
+                        <p>{node.childMarkdownRemark.excerpt}</p>
                     </div>
                 ))}
             </div>
@@ -38,17 +38,19 @@ export default ({ data }) => {
 
 export const query = graphql`
     query IndexQuery {
-        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+        allFile(filter: { sourceInstanceName: { eq: "src" } }) {
             totalCount
             edges {
                 node {
-                    id
-                    frontmatter {
-                        title
-                        date(formatString: "DD MMMM, YYYY")
-                        path
+                    childMarkdownRemark {
+                        id
+                        excerpt
+                        frontmatter {
+                         path
+                         title
+                         date(formatString: "DD MMMM, YYYY")
+                        }
                     }
-                    excerpt
                 }
             }
         }
