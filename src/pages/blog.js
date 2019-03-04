@@ -40,7 +40,7 @@ export const query = graphql`
 query IndexQuery {
     allMarkdownRemark(
         sort: {fields: [frontmatter___date], order: DESC}, 
-        filter: {frontmatter: {path: {regex: "/^/blog/"}}}) {
+        filter: {frontmatter: {path: {regex: "/^\/blog/"}}}) {
       totalCount
       edges {
         node {
