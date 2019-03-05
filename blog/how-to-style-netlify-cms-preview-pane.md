@@ -2,6 +2,7 @@
 path: /blog/how-to-style-netlify-cms-preview-pane
 date: 2019-03-05T07:25:30.848Z
 title: How to style Netlify CMS Preview Pane
+thumbnail: /assets/previewpane-thumb.jpg
 ---
 If you have installed and setup GatsbyJS and NetlifyCMS, then keep reading.
 
