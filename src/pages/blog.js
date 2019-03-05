@@ -26,6 +26,7 @@ export default ({ data }) => {
                                         css={{ textDecoration: `none`, color: `inherit` }}
                                         className="blog-title"
                                     >
+                                        <img src={node.frontmatter.thumbnail} />
                                         <h3 style={{ marginBottom: '4px' }}>
                                             {node.frontmatter.title}{" "}
                                             <span className="blog-date">— {node.frontmatter.date}</span>
@@ -56,6 +57,7 @@ query IndexQuery {
             title
             date(formatString: "DD MMMM, YYYY")
             path
+            thumbnail
           }
           excerpt
         }
