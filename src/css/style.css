@@ -136,5 +136,8 @@ body {
 .blog-content h2 {
   text-align: left;
 }
+.blog-content img {
+  max-width: 800px;
+}
 
 /*# sourceMappingURL=style.css.map */
