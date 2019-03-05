@@ -3,6 +3,7 @@ import Link from "gatsby-link"
 import Header from './header'
 import './../css/style.css'
 import '../fonts/fonts.css';
+import { Nav, Navbar, Container, Row, Col } from 'react-bootstrap';
 
 export default ({ data }) => {
     return (
@@ -15,21 +16,27 @@ export default ({ data }) => {
                     Faith Blogs
                 </h1>
                 <h4 className="post-count">{data.allMarkdownRemark.totalCount} Posts</h4>
-                {data.allMarkdownRemark.edges.map(({ node }) => (
-                    <div key={node.id}>
-                        <Link
-                            to={node.frontmatter.path}
-                            css={{ textDecoration: `none`, color: `inherit` }}
-                            className="blog-title"
-                        >
-                            <h3 style={{ marginBottom: '4px' }}>
-                                {node.frontmatter.title}{" "}
-                                <span className="blog-date">— {node.frontmatter.date}</span>
-                            </h3>
-                        </Link>
-                        <p>{node.excerpt}</p>
-                    </div>
-                ))}
+                <Container>
+                    <Row>
+                        {data.allMarkdownRemark.edges.map(({ node }) => (
+                            <Col sm={4} className="blog-post">
+                                <div key={node.id}>
+                                    <Link
+                                        to={node.frontmatter.path}
+                                        css={{ textDecoration: `none`, color: `inherit` }}
+                                        className="blog-title"
+                                    >
+                                        <h3 style={{ marginBottom: '4px' }}>
+                                            {node.frontmatter.title}{" "}
+                                            <span className="blog-date">— {node.frontmatter.date}</span>
+                                        </h3>
+                                    </Link>
+                                    <p>{node.excerpt}</p>
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
             </div>
 
         </div>
