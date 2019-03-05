@@ -102,19 +102,6 @@ body {
   font-size: 20px;
   color: gray;
 }
-.content .blog-title {
-  color: #212529;
-  font-size: 22px;
-  text-decoration: none;
-}
-.content .blog-title:hover {
-  text-decoration: none;
-  color: #b948ff;
-}
-.content .blog-title .blog-date {
-  font-size: 15px;
-  color: gray;
-}
 
 .timeline-horizontal .dot {
   background-color: #b948ff;
@@ -135,6 +122,20 @@ body {
 }
 .blog-content .blog-post {
   margin-bottom: 30px;
+}
+.blog-content .blog-title {
+  color: #212529;
+  font-size: 22px;
+  text-decoration: none;
+}
+.blog-content .blog-title:hover {
+  text-decoration: none;
+  color: #b948ff;
+}
+.blog-content .blog-title .blog-date {
+  font-size: 15px;
+  color: gray;
+  display: block;
 }
 .blog-content h2 {
   text-align: left;
