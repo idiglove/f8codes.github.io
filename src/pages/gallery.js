@@ -3,7 +3,7 @@ import Link from "gatsby-link"
 import Header from './header'
 import './../css/style.css'
 import '../fonts/fonts.css';
-import { Nav, Navbar, Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 export default ({ data }) => {
     return (
@@ -20,14 +20,7 @@ export default ({ data }) => {
                   {data.allFile.edges.map(({ node }) => (
                     <Col sm={4} className="gallery-img">
                       <div key={node.childMarkdownRemark.id}>
-                          {/* <Link
-                              to={node.frontmatter.path}
-                              css={{ textDecoration: `none`, color: `inherit` }}
-                              className="blog-title"
-                          > */}
-                              <img src={node.childMarkdownRemark.frontmatter.image}></img>
-                          {/* </Link> */}
-                          {/* <p>{node.excerpt}</p> */}
+                          <img src={node.childMarkdownRemark.frontmatter.image}></img>
                       </div>
                     </Col>
                   ))}

@@ -135,6 +135,12 @@ html, body {
             margin: 20px;
             object-fit: cover;
             object-position: center center;
+            transition: all .3s ease-in-out;
+        }
+
+        img:hover {
+            border-radius: 0;
+            cursor: pointer;
         }
     }
 }
