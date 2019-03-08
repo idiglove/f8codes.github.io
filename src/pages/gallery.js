@@ -3,6 +3,7 @@ import Link from "gatsby-link"
 import Header from './header'
 import './../css/style.css'
 import '../fonts/fonts.css';
+import { Nav, Navbar, Container, Row, Col } from 'react-bootstrap';
 
 export default ({ data }) => {
     return (
@@ -10,22 +11,28 @@ export default ({ data }) => {
 
             <Header/>
 
-            <div className="content blog-content">
+            <div className="content">
                 <h1 className="main-title">
                     Gallery
                 </h1>
-                {data.allFile.edges.map(({ node }) => (
-                    <div key={node.childMarkdownRemark.id}>
-                        {/* <Link
-                            to={node.frontmatter.path}
-                            css={{ textDecoration: `none`, color: `inherit` }}
-                            className="blog-title"
-                        > */}
-                            <img src={node.childMarkdownRemark.frontmatter.image}></img>
-                        {/* </Link> */}
-                        {/* <p>{node.excerpt}</p> */}
-                    </div>
-                ))}
+                <Container>
+                  <Row>
+                  {data.allFile.edges.map(({ node }) => (
+                    <Col sm={4} className="gallery-img">
+                      <div key={node.childMarkdownRemark.id}>
+                          {/* <Link
+                              to={node.frontmatter.path}
+                              css={{ textDecoration: `none`, color: `inherit` }}
+                              className="blog-title"
+                          > */}
+                              <img src={node.childMarkdownRemark.frontmatter.image}></img>
+                          {/* </Link> */}
+                          {/* <p>{node.excerpt}</p> */}
+                      </div>
+                    </Col>
+                  ))}
+                  </Row>
+                </Container>
             </div>
 
         </div>
