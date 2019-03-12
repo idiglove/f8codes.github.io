@@ -13,6 +13,18 @@ const Header = () => (
         <Helmet>
             <title>Faith Blogs</title>
             <meta name="description" content="Faith Morante - Full Stack Web Developer - Blog about Coding" />
+            {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136122250-1"></script>
+            <script type="text/javascript">
+                {`window.onload = () => {
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-136122250-1');
+                }`}
+            </script>
         </Helmet>
         <StickyHeader className="sticky-header"
                       header={
