@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Link from "gatsby-link"
-import Header from './header'
+import Header from '../pages/header'
 import './../css/style.css'
 import '../fonts/fonts.css';
 import { Nav, Navbar, Container, Row, Col } from 'react-bootstrap';
