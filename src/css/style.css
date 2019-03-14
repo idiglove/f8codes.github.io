@@ -166,5 +166,8 @@ html, body {
 .blog-content img {
   max-width: 800px;
 }
+.blog-content .pagination-link {
+  float: right;
+}
 
 /*# sourceMappingURL=style.css.map */
