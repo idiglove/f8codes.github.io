@@ -17,7 +17,7 @@ class Blog extends Component {
         const nextPage = '/blog/' + (currentPage + 1).toString()
 
         let tags = []
-        _.each(data.allMarkdownRemark.edges, edge => {
+        _.each(data.tagsQuery.edges, edge => {
             if (_.get(edge, "node.frontmatter.tags")) {
               tags = tags.concat(edge.node.frontmatter.tags)
             }
@@ -35,7 +35,7 @@ class Blog extends Component {
                     <h1 className="main-title">
                         Faith's blog
                     </h1>
-                    <h4 className="post-count">{data.allMarkdownRemark.totalCount} Posts</h4>
+                    <h4 className="post-count">{data.pageQuery.totalCount} Posts</h4>
                     <Container>
                         <Row>
                             <Col>
@@ -48,7 +48,7 @@ class Blog extends Component {
                             </Col>
                         </Row>
                         <Row>
-                            {data.allMarkdownRemark.edges.map(({ node }) => (
+                            {data.pageQuery.edges.map(({ node }) => (
                                 <Col sm={4} className="blog-post" key={node.id}>
                                     <div>
                                         <Link
@@ -88,7 +88,7 @@ export default Blog
 
 export const query = graphql`
 query($skip: Int, $limit: Int) { 
-    allMarkdownRemark(
+    pageQuery: allMarkdownRemark(
             sort: {fields: [frontmatter___date], order: DESC}, 
             filter: {frontmatter: {path: {regex: "/^\/blog/"}}},
             limit: $limit
@@ -106,6 +106,21 @@ query($skip: Int, $limit: Int) {
             tags
           }
           excerpt
+        }
+      }
+    }
+
+    tagsQuery: allMarkdownRemark(
+            sort: {fields: [frontmatter___date], order: DESC}, 
+            filter: {frontmatter: {path: {regex: "/^\/blog/"}}},
+        ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            tags
+          }
         }
       }
     }
