@@ -22,14 +22,14 @@ class Blog extends Component {
 
                 <div className="content blog-content">
                     <h1 className="main-title">
-                        Faith Blogs
+                        Faith's blog
                     </h1>
                     <h4 className="post-count">{data.allMarkdownRemark.totalCount} Posts</h4>
                     <Container>
                         <Row>
                             {data.allMarkdownRemark.edges.map(({ node }) => (
-                                <Col sm={4} className="blog-post">
-                                    <div key={node.id}>
+                                <Col sm={4} className="blog-post" key={node.id}>
+                                    <div>
                                         <Link
                                             to={node.frontmatter.path}
                                             css={{ textDecoration: `none`, color: `inherit` }}
