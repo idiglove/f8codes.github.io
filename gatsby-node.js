@@ -54,7 +54,7 @@ exports.createPages = ({ actions, graphql }) => {
     })
 
     const posts = result.data.allFile.edges
-    const postsPerPage = 3;
+    const postsPerPage = 6;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
     Array.from({ length: numPages }).forEach((_, i) => {
@@ -72,7 +72,7 @@ exports.createPages = ({ actions, graphql }) => {
 
 
     let tags = []
-    
+
     _.each(posts, edge => {
       if (_.get(edge, "node.childMarkdownRemark.frontmatter.tags")) {
         tags = tags.concat(edge.node.childMarkdownRemark.frontmatter.tags)

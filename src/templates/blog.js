@@ -3,7 +3,7 @@ import Link from "gatsby-link"
 import Header from '../pages/header'
 import './../css/style.css'
 import '../fonts/fonts.css';
-import { Nav, Navbar, Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 const _ = require("lodash")
 
 // export default ({ data }) => {
@@ -25,8 +25,6 @@ class Blog extends Component {
 
         // Eliminate duplicate tags
         tags = _.uniq(tags)
-
-        console.log(1, tags)
       
         return (
             <div>
@@ -39,6 +37,16 @@ class Blog extends Component {
                     </h1>
                     <h4 className="post-count">{data.allMarkdownRemark.totalCount} Posts</h4>
                     <Container>
+                        <Row>
+                            <Col>
+                            <h3 className="blog-tags">Tags:</h3>
+                                {tags.map((tag) => (
+                                    <Link to={`/tags/${_.kebabCase(tag)}/`} className="blog-tags">
+                                    {tag}
+                                    </Link>
+                                ))}
+                            </Col>
+                        </Row>
                         <Row>
                             {data.allMarkdownRemark.edges.map(({ node }) => (
                                 <Col sm={4} className="blog-post" key={node.id}>
@@ -58,16 +66,6 @@ class Blog extends Component {
                                     </div>
                                 </Col>
                             ))}
-                        </Row>
-                        <Row>
-                            <Col>
-                            <h3 className="blog-tags">Tags:</h3>
-                                {tags.map((tag) => (
-                                    <Link to={`/tags/${_.kebabCase(tag)}/`} className="blog-tags">
-                                    {tag}
-                                    </Link>
-                                ))}
-                            </Col>
                         </Row>
                     </Container>
                     {!isFirst && (
