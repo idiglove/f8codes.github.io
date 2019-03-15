@@ -72,18 +72,7 @@ exports.createPages = ({ actions, graphql }) => {
 
 
     let tags = []
-    // result.data.allFile.edges.map(({ node }) => {
-    //     if (node.childMarkdownRemark.frontmatter.tags !== null && node.childMarkdownRemark.frontmatter.tags !== undefined) {
-    //         let t = node.childMarkdownRemark.frontmatter.tags.split(',')
-
-    //         t.map((a) => {
-    //             if (tags.indexOf(a.trim()) == -1) {
-    //                 tags.push(a.trim())
-    //             }
-    //         })
-    //     }
-    // })
-
+    
     _.each(posts, edge => {
       if (_.get(edge, "node.childMarkdownRemark.frontmatter.tags")) {
         tags = tags.concat(edge.node.childMarkdownRemark.frontmatter.tags)
