@@ -11,7 +11,7 @@ import Link from 'gatsby-link'
 const Header = () => (
     <div>
         <Helmet>
-            <title>Faith Blogs</title>
+            <title>Faith's Blog</title>
             <meta name="description" content="Faith Morante - Full Stack Web Developer - Blog about Coding" />
             {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136122250-1"></script>
