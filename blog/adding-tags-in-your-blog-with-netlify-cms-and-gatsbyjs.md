@@ -54,6 +54,34 @@ And then you can list your tags inside your JSX:
   ))}
 ```
 
+## Show ALL tags in ALL blog list pages
+
+This means all tags can be shown whether you're in any page of your blog list.
+It's simple use GraphQL aliasing. We will use two queries, one for the page query which will handle showing the list of blog posts depending on the page, second is for querying all the tags.
+
+On your GraphQL Query in your blog list file, you should have something like this:
+
+```
+export const query = graphql`
+query($skip: Int, $limit: Int) { 
+    pageQuery: allMarkdownRemark(
+            sort: {fields: [frontmatter___date], order: DESC}, 
+            filter: {frontmatter: {path: {regex: "/^\/blog/"}}},
+            limit: $limit
+            skip: $skip
+        ) {
+  // rest of query here
+
+tagsQuery: allMarkdownRemark(
+            sort: {fields: [frontmatter___date], order: DESC}, 
+            filter: {frontmatter: {path: {regex: "/^\/blog/"}}},
+        ) {
+  // rest of query here
+```
+
+You can now reference the queries like this:
+`data.tagsQuery.edges`, `data.pageQuery.edges`
+
 And that's it! If you have been following my blog, you should be able to style your tags pages. Comment below for any questions.
 
 Cheers!
