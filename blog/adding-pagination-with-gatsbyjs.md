@@ -3,6 +3,9 @@ path: /blog/adding-pagination-with-gatsbyjs
 date: 2019-03-14T07:41:27.174Z
 title: Adding Pagination with GatsbyJS
 thumbnail: /assets/pagination.jpg
+tags:
+  - gatsby
+  - web development
 ---
 Do you have a lot of blog posts in your blog list and you need to paginate it?
 I will teach you how on your blog that uses GatsbyJS.
