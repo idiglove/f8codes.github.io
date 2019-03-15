@@ -6,6 +6,7 @@
 
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const _ = require("lodash")
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     const { createNodeField } = boundActionCreators
@@ -67,5 +68,38 @@ exports.createPages = ({ actions, graphql }) => {
         },
       });
     });
+
+
+    let tags = []
+    // result.data.allFile.edges.map(({ node }) => {
+    //     if (node.childMarkdownRemark.frontmatter.tags !== null && node.childMarkdownRemark.frontmatter.tags !== undefined) {
+    //         let t = node.childMarkdownRemark.frontmatter.tags.split(',')
+
+    //         t.map((a) => {
+    //             if (tags.indexOf(a.trim()) == -1) {
+    //                 tags.push(a.trim())
+    //             }
+    //         })
+    //     }
+    // })
+
+    _.each(posts, edge => {
+      if (_.get(edge, "node.childMarkdownRemark.frontmatter.tags")) {
+        tags = tags.concat(edge.node.childMarkdownRemark.frontmatter.tags)
+      }
+    })
+    // Eliminate duplicate tags
+    tags = _.uniq(tags)
+
+    // Make tag pages
+    tags.forEach(tag => {
+      createPage({
+        path: `/tags/${_.kebabCase(tag)}/`,
+        component: path.resolve(`src/templates/tags.js`),
+        context: {
+          tag,
+        },
+      })
+    })
   })
 }

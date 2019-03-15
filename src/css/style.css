@@ -160,6 +160,11 @@ html, body {
   color: gray;
   display: block;
 }
+.blog-content .blog-tags {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 20px;
+}
 .blog-content h2 {
   text-align: left;
 }
