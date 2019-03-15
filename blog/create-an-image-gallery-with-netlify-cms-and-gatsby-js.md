@@ -3,6 +3,7 @@ path: /blog/create-an-image-gallery-with-netlify-cms-and-gatsbyjs
 date: 2019-03-08T02:43:40.640Z
 title: Create an image gallery with Netlify CMS and Gatsby JS
 thumbnail: /assets/image-gallery.jpg
+tags: 'gatsby, netlify, web development'
 ---
 Hi all, it is totally possible to create an image gallery with your custom stylings too!
 
