@@ -6,6 +6,7 @@ thumbnail: /assets/pagination.jpg
 tags:
   - gatsby
   - web development
+  - tutorial
 ---
 Do you have a lot of blog posts in your blog list and you need to paginate it?
 I will teach you how on your blog that uses GatsbyJS.

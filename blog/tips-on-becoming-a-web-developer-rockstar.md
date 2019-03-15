@@ -3,6 +3,9 @@ path: /blog/tips-on-becoming-a-web-developer-rockstar
 date: 2019-03-13T23:53:36.574Z
 title: Tips on becoming a web developer rockstar
 thumbnail: /assets/webdeveloper-rockstar.jpg
+tags:
+  - web development
+  - tips
 ---
 You would like to create your own website or websites for other people. You have a keen eye for design and see yourself becoming an expert in web development field. You have a determination to succeed and want to become known as a Web Development rockstar. Then you have come to the right place.
 

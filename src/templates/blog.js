@@ -4,6 +4,7 @@ import Header from '../pages/header'
 import './../css/style.css'
 import '../fonts/fonts.css';
 import { Nav, Navbar, Container, Row, Col } from 'react-bootstrap';
+const _ = require("lodash")
 
 // export default ({ data }) => {
 class Blog extends Component {   
@@ -15,6 +16,18 @@ class Blog extends Component {
         const prevPage = currentPage - 1 === 1 ? "/blog" : '/blog/' + (currentPage - 1).toString()
         const nextPage = '/blog/' + (currentPage + 1).toString()
 
+        let tags = []
+        _.each(data.allMarkdownRemark.edges, edge => {
+            if (_.get(edge, "node.frontmatter.tags")) {
+              tags = tags.concat(edge.node.frontmatter.tags)
+            }
+          })
+
+        // Eliminate duplicate tags
+        tags = _.uniq(tags)
+
+        console.log(1, tags)
+      
         return (
             <div>
 
@@ -45,6 +58,16 @@ class Blog extends Component {
                                     </div>
                                 </Col>
                             ))}
+                        </Row>
+                        <Row>
+                            <Col>
+                            <h3 className="blog-tags">Tags:</h3>
+                                {tags.map((tag) => (
+                                    <Link to={`/tags/${_.kebabCase(tag)}/`} className="blog-tags">
+                                    {tag}
+                                    </Link>
+                                ))}
+                            </Col>
                         </Row>
                     </Container>
                     {!isFirst && (
@@ -82,6 +105,7 @@ query($skip: Int, $limit: Int) {
             date(formatString: "DD MMMM, YYYY")
             path
             thumbnail
+            tags
           }
           excerpt
         }

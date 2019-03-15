@@ -33,6 +33,7 @@ exports.createPages = ({ actions, graphql }) => {
             childMarkdownRemark {
               frontmatter {
                 path
+                tags
               }
             }
           }
