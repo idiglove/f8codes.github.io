@@ -2,7 +2,7 @@
 path: /blog/you-will-never-be-ready-start-now
 date: 2019-03-18T03:23:39.050Z
 title: 'You will never be ready, start now'
-thumbnail: /assets/start_now.jpg
+thumbnail: /assets/start_now_blog.jpg
 tags:
   - tips
   - nuggets
