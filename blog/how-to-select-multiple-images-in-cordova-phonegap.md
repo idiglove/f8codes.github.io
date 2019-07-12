@@ -12,27 +12,31 @@ My current job allows me to develop mobile apps -- using Cordova.
 
 I came to a blocker when I needed to allow users to select multiple images. This is how I did it:
 
+Install this:
+https://www.npmjs.com/package/cordova-plugin-telerik-imagepicker
+
+And the trickiest part is instead of using their own `requestReadPermissions` function. Use something like that from here: 
+`https://www.npmjs.com/package/cordova-plugin-android-permissions`
 
 
-\`\``
+The full code:
+```
 
 function onDeviceReady() {
 
-						function hasReadPermission() {
+	function hasReadPermission() {
 
-							window.imagePicker.hasReadPermission(
+		window.imagePicker.hasReadPermission(
 
-								function(result) {
+			function(result) {
 
-									if (result == false) {
+				if (result == false) {
 
-										requestReadPermission();
+				     requestReadPermission();
 
-									} else {
+					} else {                           window.imagePicker.getPictures(
 
-										window.imagePicker.getPictures(
-
-											function(results) {
+                                 function(results) {
 
 												for (var i = 0; i < results.length; i++) {
 
@@ -107,4 +111,8 @@ function onDeviceReady() {
 					
 
 					document.addEventListener('deviceready', onDeviceReady);\
-\`\``
+```
+
+Leave any comments if you liked it, helped you or if you have any questions
+
+Rock on!
