@@ -1,9 +1,29 @@
 html, body {
   font-family: "Montserrat Regular", "sans-serif";
+  width: 100%;
 }
 
 .sticky-header {
   height: 120px;
+}
+
+.header {
+  height: 500px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.header .header-text {
+  position: absolute;
+  top: 38%;
+  color: white;
+  text-align: center;
+  left: 0;
+  right: 0;
+}
+.header .header-text h1 {
+  font-size: 70px;
+  font-family: "Montserrat ExtraBold";
 }
 
 .header-root {

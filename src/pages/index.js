@@ -7,6 +7,8 @@ import StickyHeader from 'react-sticky-header';
 import { Nav, Navbar, Container, Row, Col } from 'react-bootstrap';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import photo from '../img/photo-edited.jpg';
+import headerBg from '../img/header-bg.jpg'
+import headerBgPng from '../img/header-bg.png'
 import fireEagleGaming from '../img/portfolio/web/1.jpg';
 import globalToaster from '../img/portfolio/web/2.jpg';
 import mettaschola from '../img/portfolio/web/3.jpg';
@@ -72,6 +74,14 @@ class App extends Component {
                 >
 
                 </StickyHeader>
+
+                <div className="header">
+                    <img src={headerBg}></img>
+                    <div className="header-text">
+                        <h1>Software Engineer</h1>
+                        <h2>Web &amp; Mobile Apps</h2>
+                    </div>
+                </div> 
 
                 <div className="content">
                     <div id="about">
@@ -174,7 +184,7 @@ class App extends Component {
                                                 }
                                             }}
                                         />
-                                        <span className="skills">Zend Framework, Sass, C#, Photoshop, React Native</span>
+                                        <span className="skills">React, Redux, Zend Framework, Sass, C#, Photoshop, React Native</span>
                                     </Row>
                                 </Col>
                             </Row>
@@ -192,7 +202,7 @@ class App extends Component {
                                                 }
                                             }}
                                         />
-                                        <span className="skills">Angular, React, CodeIgniter, Docker, Git, AWS</span>
+                                        <span className="skills">Angular, CodeIgniter, Docker, Git, AWS</span>
                                     </Row>
                                 </Col>
                                 <Col>
