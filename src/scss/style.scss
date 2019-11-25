@@ -105,6 +105,7 @@ html, body {
         .contact {
             margin-top: 10px;
             display: block;
+            word-break: break-word;
         }
     }
 
@@ -115,6 +116,10 @@ html, body {
 
     .about-img-container {
         text-align: center;
+
+        img {
+            width: 100%;
+        }
     }
 
     #education {
@@ -142,6 +147,10 @@ html, body {
         }
 
         margin-bottom: 100px;
+
+        img {
+            width: 100%;
+        }
     }
 
     .main-title, h1:first-child {
