@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './../css/style.css';
+import './../scss/style.scss';
 import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-sticky-header/styles.css';
