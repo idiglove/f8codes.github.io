@@ -23,6 +23,7 @@ export const HomeSidebar = styled.div`
     text-align: center;
     padding: 1rem;
     position: fixed;
+    height: 100%;
 `
 
 export const HomeBodyWrapper = styled.div`
@@ -37,6 +38,7 @@ export const HomeBodyWrapper = styled.div`
     position: fixed;
     left: 20%;
     overflow: auto;
+    height: 100%;
 `
 
 export const ProfilePicWrapper = styled.div`
@@ -123,4 +125,45 @@ export const ContactList = styled.ul`
     li {
         margin-bottom: 1rem;
     }
+`
+
+export const SkillsContentWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+export const SkillsTitle = styled.h3`
+    font-size: 1rem;
+    text-transform: uppercase;
+`
+
+export const SkillsWrapper = styled.div`
+    display: flex;
+    width: 80%;
+`
+
+export const SkillsColumn = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+`
+
+export const SkillsList = styled.ul`
+    list-style: none;
+    margin: 1rem 0 0 0;
+    padding: 0;
+
+    li {
+        padding: 0.5rem;
+    }
+`
+
+export const SkillsListTitle = styled.h4`
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-bottom: 1px white solid;
+    padding: 0.2rem;
+    display: inline-block;
 `
