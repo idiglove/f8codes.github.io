@@ -20,6 +20,8 @@ import Link from 'gatsby-link';
 import '../fonts/fonts.css';
 import About from './../components/About'
 import Skills from './../components/Skills'
+import Education from './../components/Education'
+import Portfolio from './../components/Portfolio'
 
 import { Appwrapper, HomeWrapper, HomeSidebar, HomeBodyWrapper, ProfilePicWrapper, ProfilePic,
     HomeName, SidebarLinks, HomeHeader, HomeContent, ContentParagraph, ContactList, ContactWrapper, ContentWrapper } from './../styles/home-styles'
@@ -81,10 +83,10 @@ export default function Index() {
                     <SidebarLinks>
                         <li onClick={() => setContentOption(<About />)}>About</li>
                         <li onClick={() => setContentOption(<Skills />)}>Skills</li>
-                        <li>Education</li>
-                        <li>Portfolio</li>
+                        <li onClick={() => setContentOption(<Education />)}>Education</li>
+                        <li onClick={() => setContentOption(<Portfolio />)}>Portfolio</li>
                         <li>Testimonials</li>
-                        <li>Blog</li>
+                        <li><Link to="/blog">Blog</Link></li>
                     </SidebarLinks>
                 </HomeSidebar>
 
@@ -95,13 +97,13 @@ export default function Index() {
                         Web and Mobile Development
                     </HomeHeader>
 
-                    <HomeContent>
+                    {/* <HomeContent> */}
                         {
                             <>
                                 {contentOption}
                             </>
                         }
-                    </HomeContent>
+                    {/* </HomeContent> */}
                 </HomeBodyWrapper>
             </HomeWrapper>
 

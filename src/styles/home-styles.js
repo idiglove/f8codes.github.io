@@ -71,6 +71,11 @@ export const SidebarLinks = styled.ul`
     li {
         margin-bottom: 1rem;
         cursor: pointer;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
     }
 `
 
@@ -127,6 +132,11 @@ export const ContactList = styled.ul`
     }
 `
 
+export const EducationWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
 export const SkillsContentWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -142,6 +152,7 @@ export const SkillsTitle = styled.h3`
 export const SkillsWrapper = styled.div`
     display: flex;
     width: 80%;
+    margin-bottom: 2rem;
 `
 
 export const SkillsColumn = styled.div`
@@ -166,4 +177,75 @@ export const SkillsListTitle = styled.h4`
     border-bottom: 1px white solid;
     padding: 0.2rem;
     display: inline-block;
+`
+
+export const InterestsColumn = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+`
+
+export const PortfolioContentWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`
+
+export const PortfolioWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin-bottom: 2rem;
+`
+
+export const PortfolioRow = styled.div`
+    display: flex;
+    min-height: 300px;
+`
+
+export const PortfolioDesc = styled.div`
+    width: 40%;
+    padding: 1rem;
+    font-size: 0.8rem;
+    align-self: center;
+`
+
+export const PortfolioDescTitle = styled.h4`
+    font-size: 1rem;
+    margin-bottom: 1rem;
+`
+
+export const PortfolioDescText = styled.h4`
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+`
+
+export const PortfolioDescList = styled.ul`
+    list-style: none;
+    margin: 1rem 0 0 0;
+    padding: 0;
+
+    li {
+        margin-bottom: 0.7rem;
+    }
+`
+
+export const PortfolioImgWrapper = styled.div`
+    overflow: hidden;
+    width: 415px;
+    height: 200px;
+    align-self: center;
+    -webkit-box-shadow: 6px -1px 35px -12px rgba(0,0,0,1);
+    -moz-box-shadow: 6px -1px 35px -12px rgba(0,0,0,1);
+    box-shadow: 6px -1px 35px -12px rgba(0,0,0,1);
+    border: 6px solid #1e0d29;
+    box-sizing: content-box;
+    border-radius: 10px;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 `
