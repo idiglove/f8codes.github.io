@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import homeImg from './../img/header-bg.png'
+import { Nav, Navbar } from 'react-bootstrap';
 
 export const Appwrapper = styled.div`
     width: 100%;
@@ -24,6 +25,14 @@ export const HomeSidebar = styled.div`
     padding: 1rem;
     position: fixed;
     height: 100%;
+
+    @media only screen and (max-width: 500px) {
+        flex-direction: row;
+        width: 100%;
+        height: 100px;
+        z-index: 999;
+        justify-content: space-between;
+    }
 `
 
 export const HomeBodyWrapper = styled.div`
@@ -39,6 +48,14 @@ export const HomeBodyWrapper = styled.div`
     left: 20%;
     overflow: auto;
     height: 100%;
+
+    @media only screen and (max-width: 500px) {
+        width: 100%;
+        height: auto;
+        margin-top: 100px;
+        left: 0;
+        position: relative;
+    }
 `
 
 export const ProfilePicWrapper = styled.div`
@@ -47,6 +64,10 @@ export const ProfilePicWrapper = styled.div`
     border-radius: 50%;
     overflow: hidden;
     align-self: center;
+
+    @media only screen and (max-width: 500px) {
+        width: 20%;
+    }
 `
 
 export const ProfilePic = styled.img`
@@ -59,6 +80,40 @@ export const HomeName = styled.h2`
     font-size: 1.2rem;
     text-transform: uppercase;
     margin-top: 1rem;
+
+    @media only screen and (max-width: 500px) {
+        align-self: center;
+        margin-top: 0;
+        margin-left: 1rem;
+    }
+`
+
+export const MobileLinksNavbar = styled(Navbar)`
+    width: 100px;
+    position: relative;
+
+    .navbar-collapse {
+        text-align: right;
+        position: absolute;
+        top: 54px;
+        right: 30px;
+        background-color: #f9f1ff;
+        color: #1e0d29;
+        padding: 10px;
+
+        li {
+            padding: 5px;
+            
+            a {
+                color: #1e0d29;
+                text-decoration: none;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 500px) {
+        display: none;
+    }
 `
 
 export const SidebarLinks = styled.ul`
@@ -77,6 +132,10 @@ export const SidebarLinks = styled.ul`
             text-decoration: none;
         }
     }
+
+    @media only screen and (max-width: 500px) {
+        display: none;
+    }
 `
 
 export const HomeHeader = styled.h1`
@@ -91,6 +150,10 @@ export const HomeContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (max-width: 500px) {
+        height: auto;
+    }
 `
 
 export const ContentWrapper = styled.div`
@@ -135,6 +198,7 @@ export const ContactList = styled.ul`
 export const EducationWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 `
 
 export const SkillsContentWrapper = styled.div`
@@ -202,10 +266,14 @@ export const PortfolioWrapper = styled.div`
 export const PortfolioRow = styled.div`
     display: flex;
     min-height: 300px;
+
+    @media only screen and (max-width: 500px) {
+        flex-direction: column;
+    }
 `
 
 export const PortfolioDesc = styled.div`
-    width: 40%;
+    width: 300px;
     padding: 1rem;
     font-size: 0.8rem;
     align-self: center;
@@ -247,5 +315,9 @@ export const PortfolioImgWrapper = styled.div`
         object-fit: cover;
         width: 100%;
         height: 100%;
+    }
+
+    @media only screen and (max-width: 500px) {
+        width: 80%;
     }
 `

@@ -24,7 +24,7 @@ import Education from './../components/Education'
 import Portfolio from './../components/Portfolio'
 
 import { Appwrapper, HomeWrapper, HomeSidebar, HomeBodyWrapper, ProfilePicWrapper, ProfilePic,
-    HomeName, SidebarLinks, HomeHeader, HomeContent, ContentParagraph, ContactList, ContactWrapper, ContentWrapper } from './../styles/home-styles'
+    HomeName, SidebarLinks, HomeHeader, MobileLinksNavbar } from './../styles/home-styles'
 
 export default function Index() {
     const [contentOption, setContentOption] = useState(<About/>)
@@ -88,6 +88,20 @@ export default function Index() {
                         <li>Testimonials</li>
                         <li><Link to="/blog">Blog</Link></li>
                     </SidebarLinks>
+
+                    <MobileLinksNavbar expand="lg" variant="dark" >
+                        <Navbar.Toggle aria-controls="main-navbar" />
+                        <Navbar.Collapse id="main-navbar">
+                            <Nav >
+                                <li onClick={() => setContentOption(<About />)}>About</li>
+                                <li onClick={() => setContentOption(<Skills />)}>Skills</li>
+                                <li onClick={() => setContentOption(<Education />)}>Education</li>
+                                <li onClick={() => setContentOption(<Portfolio />)}>Portfolio</li>
+                                <li>Testimonials</li>
+                                <li><Link to="/blog">Blog</Link></li>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </MobileLinksNavbar>
                 </HomeSidebar>
 
                 <HomeBodyWrapper>
