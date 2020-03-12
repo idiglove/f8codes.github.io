@@ -3,7 +3,10 @@ import Link from "gatsby-link"
 import Header from '../pages/header'
 import './../css/style.css'
 import '../fonts/fonts.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
+import { HomeWrapper, HomeSidebar, HomeBodyWrapper, ProfilePicWrapper, ProfilePic,
+  HomeName, SidebarLinks, HomeHeader, MobileLinksNavbar } from './../styles/home-styles'
+import { BlogWrapper, BlogTitle, BlogItem, BlogDate, BlogExcerpt, BlogLink, TagsTitle, BackLink } from './../styles/blog-styles'
 const _ = require("lodash")
 
 // export default ({ data }) => {
@@ -29,9 +32,78 @@ class Blog extends Component {
         return (
             <div>
 
-                <Header/>
+                {/* <Header/> */}
 
-                <div className="content blog-content">
+                <HomeWrapper>
+                  <HomeSidebar>
+                      <ProfilePicWrapper>
+                          <ProfilePic src={require('./../img/pic.png')} />
+                      </ProfilePicWrapper>
+                      <HomeName>
+                        Faith Morante
+                      </HomeName>
+                      <BackLink to={'/'}>Portfolio</BackLink> 
+                      <SidebarLinks>
+                        <TagsTitle>
+                          Categories  
+                        </TagsTitle>
+                        {tags.map((tag, i) => (
+                          <li key={i}>
+                            <Link to={`/tags/${_.kebabCase(tag)}/`}>
+                            {tag}
+                            </Link>
+                          </li>
+                        ))}
+                      </SidebarLinks>
+
+                      <MobileLinksNavbar expand="lg" variant="dark" >
+                          <Navbar.Toggle aria-controls="main-navbar" />
+                          <Navbar.Collapse id="main-navbar">
+                              <Nav >
+                                  <li onClick={() => setContentOption(<About />)}>About</li>
+                              </Nav>
+                          </Navbar.Collapse>
+                      </MobileLinksNavbar>
+                  </HomeSidebar>
+
+                <HomeBodyWrapper>
+                    <HomeHeader>
+                        Blog
+                    </HomeHeader>
+
+                    <BlogWrapper>
+                      {data.pageQuery.edges.map(({ node }, i) => (
+                        <BlogItem key={node.id}>
+                            <Link
+                                to={node.frontmatter.path}
+                                css={{ textDecoration: `none`, color: `inherit` }}
+                                className="blog-title"
+                            >
+                                <img src={node.frontmatter.thumbnail} />
+                                <BlogTitle>
+                                    {node.frontmatter.title}{" "}
+                                </BlogTitle>
+                            </Link>
+                            <BlogDate>{node.frontmatter.date}</BlogDate>
+                            <BlogExcerpt>{node.excerpt}</BlogExcerpt>
+                        </BlogItem>
+                      ))}
+                    </BlogWrapper>
+
+                    {!isFirst && (
+                        <BlogLink to={prevPage} rel="prev">
+                        ← Previous Page
+                        </BlogLink>
+                    )}
+                    {!isLast && (
+                        <BlogLink to={nextPage} rel="next">
+                        Next Page →
+                        </BlogLink>
+                    )}
+                </HomeBodyWrapper>
+              </HomeWrapper>
+
+                {/* <div className="content blog-content">
                     <h1 className="main-title">
                         Faith's blog
                     </h1>
@@ -78,7 +150,7 @@ class Blog extends Component {
                         Next Page →
                         </Link>
                     )}
-                </div>
+                </div> */}
             </div>
         );
     }   
