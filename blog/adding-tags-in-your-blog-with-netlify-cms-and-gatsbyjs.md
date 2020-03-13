@@ -31,21 +31,21 @@ Make sure you put `tags` under your `frontmatter` GraphQL query.
 
 Inside the render() method, put this again:
 
-```
+```javascript
  let tags = []
-        _.each(data.allMarkdownRemark.edges, edge => {
-            if (_.get(edge, "node.frontmatter.tags")) {
-              tags = tags.concat(edge.node.frontmatter.tags)
-            }
-          })
+  _.each(data.allMarkdownRemark.edges, edge => {
+      if (_.get(edge, "node.frontmatter.tags")) {
+        tags = tags.concat(edge.node.frontmatter.tags)
+      }
+    })
 
-        // Eliminate duplicate tags
-        tags = _.uniq(tags)
+  // Eliminate duplicate tags
+  tags = _.uniq(tags)
 ```
 
 And then you can list your tags inside your JSX:
 
-```
+```javascript
 <h3 className="blog-tags">Tags:</h3>
   {tags.map((tag) => (
     <Link to={`/tags/${_.kebabCase(tag)}/`} className="blog-tags">
@@ -61,7 +61,7 @@ It's simple use GraphQL aliasing. We will use two queries, one for the page quer
 
 On your GraphQL Query in your blog list file, you should have something like this:
 
-```
+```javascript
 export const query = graphql`
 query($skip: Int, $limit: Int) { 
     pageQuery: allMarkdownRemark(

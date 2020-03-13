@@ -39,15 +39,17 @@ I won't go to any details of designing a website, that can be another blog post 
 But first thing you should do is creating a <head> tag using react-helmet. GatsbyJS already has that module installed.
 index.js is where your application starts. So put something like this inside the <div> tag
 
-        <Helmet>
-            <title>Put here the words you want to see on your browser tab</title>
-            <meta name="description" content="put here what you want to be used for SEO" />
-        </Helmet>
-
+```javascript
+    <Helmet>
+        <title>Put here the words you want to see on your browser tab</title>
+        <meta name="description" content="put here what you want to be used for SEO" />
+    </Helmet>
+```
 Then start putting in your website design code below it. 
 
 TIP: I actually like using bootstrap, and React has a library for it called `react-bootstrap`. What I mostly use are the layout components. It looks something like this: 
 
+```javascript
     <Container>
         <Row>
             <Col>
@@ -61,7 +63,7 @@ TIP: I actually like using bootstrap, and React has a library for it called `rea
                 </Row>
             </Col>
     </Container>
-
+```
 # Styling with Sass
 
 What I like to do is make a folder with a scss folder in it. And adding this line in `scripts` of `package.json`:
@@ -72,6 +74,7 @@ What it does is compiles the sass file and converts it to css inside the `src/cs
 
 This sass:
 
+```scss
     .blog-header-title {
         a {
             color: #212529;
@@ -82,9 +85,10 @@ This sass:
             }
         }
     }
-
+```
 will be converted to this css:
 
+```scss
     .blog-header-title a {
       color: #212529;
     }
@@ -92,7 +96,7 @@ will be converted to this css:
       color: #212529;
       text-decoration: none;
     }
-    
+``` 
 # Making the blog
 
 You can follow this tutorial for making the blog: `http://whoisryosuke.com/blog/2018/deploy-a-static-react-blog-using-gatsbyjs-and-github/`
@@ -109,7 +113,7 @@ Follow this: `https://github.com/disqus/disqus-react/blob/master/examples/index.
 
 TIP: for the ID, use a UUID generator and it in your markdown files. Also, in your blog template, in the graphql query, you can do something like this: 
 
-
+```javascript
     export const query = graphql`
         query BlogPostQuery($slug: String!) {
             markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -125,7 +129,7 @@ TIP: for the ID, use a UUID generator and it in your markdown files. Also, in yo
             }
         }
     `;
-
+```
 That's it. Comment below if you have any questions. Rock on!
     
     

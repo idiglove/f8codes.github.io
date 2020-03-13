@@ -3,7 +3,7 @@ import Link from "gatsby-link"
 import Header from '../pages/header'
 import './../css/style.css'
 import '../fonts/fonts.css';
-import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import { HomeWrapper, HomeSidebar, HomeBodyWrapper, ProfilePicWrapper, ProfilePic,
   HomeName, SidebarLinks, HomeHeader, MobileLinksNavbar } from './../styles/home-styles'
 import { BlogWrapper, BlogTitle, BlogItem, BlogDate, BlogExcerpt, BlogLink, TagsTitle, BackLink } from './../styles/blog-styles'

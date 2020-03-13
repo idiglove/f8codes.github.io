@@ -41,6 +41,12 @@ export const BlogExcerpt = styled.p`
     font-size: 0.7rem;
 `
 
+export const BlogPost = styled.div`
+    img {
+        width: 100%;
+    }
+`
+
 export const BlogLink = styled(Link)`
     color: #fff;
     text-decoration: none;

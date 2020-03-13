@@ -22,7 +22,7 @@ It's easy to see your preview pane with styles with these steps:
 2. Add these: 
 
 
-```
+```javascript
 `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-netlify-cms`,
@@ -42,7 +42,7 @@ in your plugins in gatsby-config.js
 4. Inside the `cms.js` file, add this:
 
 
-```
+```javascript
 import CMS from "netlify-cms"
 
 import '../fonts/fonts.css'; //if you have custom fonts
