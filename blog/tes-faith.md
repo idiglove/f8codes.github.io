@@ -33,7 +33,7 @@ Run:
 
 In your gatsby-config.js, add this:
 
-``` 
+```javascript 
 module.exports = {
 
    **plugins: \[\`gatsby-plugin-netlify-cms\`],**
@@ -48,7 +48,8 @@ If you don't have a /static/admin folder yet, create it.
 
 Add this:
 
-```backend:
+```yml
+backend:
   name: github
   repo: your-username/your-repo-name
 
@@ -75,7 +76,7 @@ Your blog should be in `${__dirname}/blog`
 
 Edit your gatsby-source-filesystem plugin in gatsby-config.js like this:
 
-```
+```javascript
 {
         resolve: `gatsby-source-filesystem`,
         options: {

@@ -21,7 +21,7 @@ Hi all, it is totally possible to create an image gallery with your custom styli
 1. In your /static/admin/config.yml file, you should have something like this:
 
 
-```
+```yml
   - name: gallery
     label: Gallery
     folder: gallery
@@ -33,7 +33,7 @@ Hi all, it is totally possible to create an image gallery with your custom styli
 
 2. Add a gallery.js file in /src/pages folder. Mine looks like this:
 
-```
+```javascript
 import React from "react"
 import Link from "gatsby-link"
 import Header from './header'
@@ -44,9 +44,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 export default ({ data }) => {
     return (
         <div>
-
             <Header/>
-
             <div className="content">
                 <h1 className="main-title">
                     Gallery
@@ -63,7 +61,6 @@ export default ({ data }) => {
                   </Row>
                 </Container>
             </div>
-
         </div>
     );
 };

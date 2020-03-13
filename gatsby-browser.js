@@ -1,5 +1,6 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
+require("./src/styles/prism-material-dark.css")
 
 const GlobalStyle = createGlobalStyle`
   html, body {

@@ -19,7 +19,7 @@ You need to do this, because if not, `/blog/` will redirect you to your blog lis
 
 In your `exports.createPages` method, inside `.then()`, you should add something like this:
 
-```
+```javascript
 const posts = result.data.allFile.edges
     const postsPerPage = 3;
     const numPages = Math.ceil(posts.length / postsPerPage);
@@ -42,7 +42,7 @@ const posts = result.data.allFile.edges
 
 Your graphql query should look something like this:
 
-```
+```javascript
 export const query = graphql`
 query($skip: Int, $limit: Int) { 
     allMarkdownRemark(
@@ -73,14 +73,14 @@ Be aware that $skip: Int, and $limit: Int are not using Int! (with an exclamatio
 
 ## Inside your render method
 
-```
+```javascript
 render () {
-        const {data} = this.props
-        const { currentPage, numPages } = this.props.pageContext
-        const isFirst = currentPage === 1
-        const isLast = currentPage === numPages
-        const prevPage = currentPage - 1 === 1 ? "/blog" : '/blog/' + (currentPage - 1).toString()
-        const nextPage = '/blog/' + (currentPage + 1).toString()
+  const {data} = this.props
+  const { currentPage, numPages } = this.props.pageContext
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const prevPage = currentPage - 1 === 1 ? "/blog" : '/blog/' + (currentPage - 1).toString()
+  const nextPage = '/blog/' + (currentPage + 1).toString()
 
 return (
   //your blog list here
