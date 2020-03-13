@@ -8,6 +8,7 @@ import { Link } from "gatsby"
 import { HomeWrapper, HomeSidebar, HomeBodyWrapper, ProfilePicWrapper, ProfilePic,
   HomeName, SidebarLinks, HomeHeader, MobileLinksNavbar } from './../styles/home-styles'
 import { BlogWrapper, BlogTitle, BlogItem, BlogDate, BlogExcerpt, TagsTitle, BackLink } from './../styles/blog-styles'
+const _ = require("lodash")
 
 const Tags = ({ pageContext, data }) => {
   // const { tag } = pageContext
