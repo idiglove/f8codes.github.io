@@ -33,10 +33,10 @@ Run:
 
 In your gatsby-config.js, add this:
 
-```javascript 
+```javascript
 module.exports = {
 
-   **plugins: \[\`gatsby-plugin-netlify-cms\`],**
+   plugins: [`gatsby-plugin-netlify-cms`],
 
  }
 ```
@@ -90,12 +90,10 @@ Edit your gatsby-source-filesystem plugin in gatsby-config.js like this:
 
 Push your commits to master. Go to Deploys tab in app.netlify.com. You will see your build status there.
 
-
 ## Authorization
 
 Follow this to authenticate your github account in the CMS: <https://www.netlify.com/docs/authentication-providers/#using-an-authentication-provider>
 
 Once it is all set up, go to your site \`domain.netlify.com/admin/\` and blog away!
-
 
 Cheers!
