@@ -14,7 +14,7 @@ I got this error: `Form submission canceled because the form is not connected`
 
 Here's what my code looked like:
 
-```
+```javascript
 <Formik
     enableReinitialize
     initialValues={{
