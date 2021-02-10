@@ -10,6 +10,10 @@ tags:
 Long time since I last posted here. 
 I just want to share a problem I had when using a form inside a modal, and the button doesn't want to submit properly!
 
+I got this error: `Form submission canceled because the form is not connected`
+
+Here's what my code looked like:
+
 ```
 <Formik
     enableReinitialize
