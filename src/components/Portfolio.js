@@ -133,7 +133,7 @@ export default function Portfolio () {
                     </PortfolioImgWrapper>
                     <PortfolioDesc>
                         <PortfolioDescTitle>
-                            frontend1.equalsresults.co.uk
+                            equalsresults.co.uk
                         </PortfolioDescTitle>
 
                         <PortfolioDescText>
@@ -144,8 +144,32 @@ export default function Portfolio () {
                             <li>
                                 Tasks:
                             </li>
+                            <li>- Built using Gatsby and Netlify</li>
                             <li>- React and State Management for Cart system</li>
                             <li>- Progressive Web Apps</li>
+                        </PortfolioDescList>
+                    </PortfolioDesc>
+                </PortfolioRow>
+                <PortfolioRow>
+                    <PortfolioImgWrapper>
+                        <img src={require('./../img/portfolio/minearc.png')} />
+                    </PortfolioImgWrapper>
+                    <PortfolioDesc>
+                        <PortfolioDescTitle>
+                            minearcapp.com
+                        </PortfolioDescTitle>
+
+                        <PortfolioDescText>
+                            Scheduling and Custom Build Stages app
+                        </PortfolioDescText>
+
+                        <PortfolioDescList>
+                            <li>
+                                Tasks:
+                            </li>
+                            <li>- React and Redux for creating a feature for completing stages of building a mine chamber</li>
+                            <li>- Used FullCalendar.io for scheduling app</li>
+                            <li>- Custom edit and add booking with api calls to Laravel apis</li>
                         </PortfolioDescList>
                     </PortfolioDesc>
                 </PortfolioRow>
