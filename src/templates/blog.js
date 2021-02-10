@@ -79,7 +79,9 @@ class Blog extends Component {
                                 css={{ textDecoration: `none`, color: `inherit` }}
                                 className="blog-title"
                             >
-                                <img src={node.frontmatter.thumbnail} />
+                                <div className="img-container">
+                                  <img src={node.frontmatter.thumbnail} />
+                                </div>
                                 <BlogTitle>
                                     {node.frontmatter.title}{" "}
                                 </BlogTitle>

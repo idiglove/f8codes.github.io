@@ -17,10 +17,18 @@ export const BlogItem = styled.div`
     vertical-align: top;
     margin: 10px;
 
-    img {
+    .img-container {
         width: 100%;
         border: 1px solid #fff;
         border-radius: 10px;
+        height: 200px;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
     }
 
     a {
