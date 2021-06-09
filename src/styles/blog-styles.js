@@ -17,6 +17,11 @@ export const BlogItem = styled.div`
     vertical-align: top;
     margin: 10px;
 
+    @media only screen and (max-width: 500px) {
+        width: 100%;
+        margin: 0;
+    }
+
     .img-container {
         width: 100%;
         border: 1px solid #fff;

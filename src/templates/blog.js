@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { navigate } from 'gatsby'
 import Link from "gatsby-link"
 import Header from '../pages/header'
 import './../css/style.css'
@@ -60,7 +61,7 @@ class Blog extends Component {
                           <Navbar.Toggle aria-controls="main-navbar" />
                           <Navbar.Collapse id="main-navbar">
                               <Nav >
-                                  <li onClick={() => setContentOption(<About />)}>About</li>
+                                  <li onClick={() => navigate('/')}>About</li>
                               </Nav>
                           </Navbar.Collapse>
                       </MobileLinksNavbar>

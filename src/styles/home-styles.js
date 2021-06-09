@@ -181,13 +181,13 @@ export const ContactList = styled.ul`
     padding: 0;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    width: 50%;
     text-align: center;
+    justify-content: center;
 
     img {
         display: inline-block;
         margin-right: 1rem;
+        width: 2rem;
     }
 
     li {
@@ -203,6 +203,7 @@ export const EducationWrapper = styled.div`
 
 export const SkillsContentWrapper = styled.div`
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

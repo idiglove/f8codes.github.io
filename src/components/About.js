@@ -20,30 +20,40 @@ export default function About () {
                 </ContentParagraph>
 
                 <ContentParagraph>
-                    To know more about me, you can reach me thru:
+                    To know more about me, you can reach me thru these links below
                 </ContentParagraph>
 
                 <ContactWrapper>
                     <ContactList>
                         <li>
-                            <img src={require('./../img/linkedin.png')}></img>
-                            /faith-morante-3097871b/
+                            <a href="https://www.linkedin.com/in/faith-morante-3097871b/" 
+                            rel="noopener noreferrer" target="_blank">
+                                <img src={require('./../img/linkedin.png')} alt="Faith's LinkedIn"></img>
+                            </a>
+                        </li>                        
+                        <li>
+                            <a href="https://twitter.com/faithmorante"  
+                            rel="noopener noreferrer" target="_blank">
+                                <img src={require('./../img/twitter.png')} alt="Faith's Twitter"></img>
+                            </a>
                         </li>
                         <li>
-                            <img src={require('./../img/wa.png')}></img>
-                            +63 916 227 4287
+                            <a href="https://www.instagram.com/faithmorante/" 
+                            rel="noopener noreferrer" target="_blank">
+                                <img src={require('./../img/ig.png')} alt="Faith's Instagram"></img>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://dev.to/idiglove"  
+                            rel="noopener noreferrer" target="_blank">
+                                <img src={require('./../img/devto.png')} alt="Faith's Dev.to"></img>
+                            </a>
                         </li>
                         <li>
-                            <img src={require('./../img/ig.png')}></img>
-                            faithmorante
-                        </li>
-                        <li>
-                            <img src={require('./../img/github.png')}></img>
-                            idiglove
-                        </li>
-                        <li>
-                            <img src={require('./../img/devto.png')}></img>
-                            idiglove
+                            <a href="https://wa.me/639162274287" rel="noopener noreferrer" target="_blank">
+                                <img src={require('./../img/wa.png')} alt="Faith's Whatsapp"></img>                            
+                            </a>
                         </li>
                     </ContactList>
                 </ContactWrapper>
