@@ -1,7 +1,22 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+import React from 'react'
+import { createGlobalStyle } from 'styled-components'
+require("./src/styles/prism-material-dark.css")
 
-// You can delete this file if you're not using it
+const GlobalStyle = createGlobalStyle`
+  html, body {
+    height: 100%;
+
+    #___gatsby, #gatsby-focus-wrapper {
+      height: 100%;
+    }
+  }
+`
+
+export const wrapRootElement = ({ element }) => {
+    return (
+        <>
+            <GlobalStyle />
+            {element}
+        </>
+    )
+  }

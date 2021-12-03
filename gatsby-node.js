@@ -6,6 +6,7 @@
 
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const _ = require("lodash")
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     const { createNodeField } = boundActionCreators
@@ -26,14 +27,14 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allFile(filter: { sourceInstanceName: { eq: "src" } }) {
         edges {
           node {
-            frontmatter {
-              path
+            childMarkdownRemark {
+              frontmatter {
+                path
+                tags
+              }
             }
           }
         }
@@ -44,11 +45,50 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allFile.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
+        path: node.childMarkdownRemark.frontmatter.path,
         component: blogPostTemplate,
         context: {}, // additional data can be passed via context
+      })
+    })
+
+    const posts = result.data.allFile.edges
+    const postsPerPage = 6;
+    const numPages = Math.ceil(posts.length / postsPerPage);
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+        component: path.resolve('./src/templates/blog.js'),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1
+        },
+      });
+    });
+
+
+    let tags = []
+
+    _.each(posts, edge => {
+      if (_.get(edge, "node.childMarkdownRemark.frontmatter.tags")) {
+        tags = tags.concat(edge.node.childMarkdownRemark.frontmatter.tags)
+      }
+    })
+    // Eliminate duplicate tags
+    tags = _.uniq(tags)
+
+    // Make tag pages
+    tags.forEach(tag => {
+      createPage({
+        path: `/tags/${_.kebabCase(tag)}/`,
+        component: path.resolve(`src/templates/tags.js`),
+        context: {
+          tag,
+        },
       })
     })
   })

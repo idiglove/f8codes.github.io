@@ -1,7 +1,8 @@
 backend:
-  name: github
-  repo: idiglove/idiglove.github.io
-
+  # name: github
+  # repo: idiglove/idiglove.github.io
+  name: git-gateway
+  
 media_folder: static/assets
 public_folder: assets
 
@@ -14,4 +15,14 @@ collections:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
+      - { name: thumbnail, label: Thumbnail, widget: image }
+      - { name: tags, label: Tags, widget: list }
       - { name: body, label: Body, widget: markdown }
+      
+  - name: gallery
+    label: Gallery
+    folder: gallery
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - { name: image, label: Image, widget: image }
