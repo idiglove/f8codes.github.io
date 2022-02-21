@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Faith Morante - Software Engineer`,
+    description: `Building apps since 2015, hire me!`,
+    author: `@idiglove`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -90,17 +90,17 @@ module.exports = {
       },
     },
     {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-            name: `src`,
-            path: `${__dirname}/blog/`,
-        },
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/blog/`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-          name: `gallery`,
-          path: `${__dirname}/gallery/`,
+        name: `gallery`,
+        path: `${__dirname}/gallery/`,
       },
     },
     {
@@ -135,4 +135,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};
