@@ -1,112 +1,121 @@
-import React, { Component } from "react"
-import { navigate } from 'gatsby'
-import Link from "gatsby-link"
-import Header from '../pages/header'
-import './../css/style.css'
-import '../fonts/fonts.css';
-import { Nav, Navbar } from 'react-bootstrap';
-import { HomeWrapper, HomeSidebar, HomeBodyWrapper, ProfilePicWrapper, ProfilePic,
-  HomeName, SidebarLinks, HomeHeader, MobileLinksNavbar } from './../styles/home-styles'
-import { BlogWrapper, BlogTitle, BlogItem, BlogDate, BlogExcerpt, BlogLink, TagsTitle, BackLink } from './../styles/blog-styles'
-const _ = require("lodash")
+import React, { Component } from "react";
+import { navigate, graphql } from "gatsby";
+import Link from "gatsby-link";
+import "./../css/style.css";
+import "../fonts/fonts.css";
+import { Nav, Navbar } from "react-bootstrap";
+
+import ProfilePicPng from "./../img/pic.png";
+import {
+  HomeWrapper,
+  HomeSidebar,
+  HomeBodyWrapper,
+  ProfilePicWrapper,
+  ProfilePic,
+  HomeName,
+  SidebarLinks,
+  HomeHeader,
+  MobileLinksNavbar,
+} from "./../styles/home-styles";
+import {
+  BlogWrapper,
+  BlogTitle,
+  BlogItem,
+  BlogDate,
+  BlogExcerpt,
+  BlogLink,
+  TagsTitle,
+  BackLink,
+} from "./../styles/blog-styles";
+const _ = require("lodash");
 
 // export default ({ data }) => {
-class Blog extends Component {   
-    render () {
-        const {data} = this.props
-        const { currentPage, numPages } = this.props.pageContext
-        const isFirst = currentPage === 1
-        const isLast = currentPage === numPages
-        const prevPage = currentPage - 1 === 1 ? "/blog" : '/blog/' + (currentPage - 1).toString()
-        const nextPage = '/blog/' + (currentPage + 1).toString()
+class Blog extends Component {
+  render() {
+    const { data } = this.props;
+    const { currentPage, numPages } = this.props.pageContext;
+    const isFirst = currentPage === 1;
+    const isLast = currentPage === numPages;
+    const prevPage =
+      currentPage - 1 === 1 ? "/blog" : "/blog/" + (currentPage - 1).toString();
+    const nextPage = "/blog/" + (currentPage + 1).toString();
+    console.log("data", data);
+    let tags = [];
+    _.each(data.tagsQuery.edges, (edge) => {
+      if (_.get(edge, "node.frontmatter.tags")) {
+        tags = tags.concat(edge.node.frontmatter.tags);
+      }
+    });
 
-        let tags = []
-        _.each(data.tagsQuery.edges, edge => {
-            if (_.get(edge, "node.frontmatter.tags")) {
-              tags = tags.concat(edge.node.frontmatter.tags)
-            }
-          })
+    // Eliminate duplicate tags
+    tags = _.uniq(tags);
 
-        // Eliminate duplicate tags
-        tags = _.uniq(tags)
-      
-        return (
-            <div>
+    return (
+      <div>
+        {/* <Header/> */}
 
-                {/* <Header/> */}
+        <HomeWrapper>
+          <HomeSidebar>
+            <ProfilePicWrapper>
+              <ProfilePic src={ProfilePicPng} />
+            </ProfilePicWrapper>
+            <HomeName>Faith Morante</HomeName>
+            <BackLink to={"/"}>Portfolio</BackLink>
+            <SidebarLinks>
+              <TagsTitle>Categories</TagsTitle>
+              {tags.map((tag, i) => (
+                <li key={i}>
+                  <Link to={`/tags/${_.kebabCase(tag)}/`}>{tag}</Link>
+                </li>
+              ))}
+            </SidebarLinks>
 
-                <HomeWrapper>
-                  <HomeSidebar>
-                      <ProfilePicWrapper>
-                          <ProfilePic src={require('./../img/pic.png')} />
-                      </ProfilePicWrapper>
-                      <HomeName>
-                        Faith Morante
-                      </HomeName>
-                      <BackLink to={'/'}>Portfolio</BackLink> 
-                      <SidebarLinks>
-                        <TagsTitle>
-                          Categories  
-                        </TagsTitle>
-                        {tags.map((tag, i) => (
-                          <li key={i}>
-                            <Link to={`/tags/${_.kebabCase(tag)}/`}>
-                            {tag}
-                            </Link>
-                          </li>
-                        ))}
-                      </SidebarLinks>
+            <MobileLinksNavbar expand="lg" variant="dark">
+              <Navbar.Toggle aria-controls="main-navbar" />
+              <Navbar.Collapse id="main-navbar">
+                <Nav>
+                  <li onClick={() => navigate("/")}>About</li>
+                </Nav>
+              </Navbar.Collapse>
+            </MobileLinksNavbar>
+          </HomeSidebar>
 
-                      <MobileLinksNavbar expand="lg" variant="dark" >
-                          <Navbar.Toggle aria-controls="main-navbar" />
-                          <Navbar.Collapse id="main-navbar">
-                              <Nav >
-                                  <li onClick={() => navigate('/')}>About</li>
-                              </Nav>
-                          </Navbar.Collapse>
-                      </MobileLinksNavbar>
-                  </HomeSidebar>
+          <HomeBodyWrapper>
+            <HomeHeader>Blog</HomeHeader>
 
-                <HomeBodyWrapper>
-                    <HomeHeader>
-                        Blog
-                    </HomeHeader>
+            <BlogWrapper>
+              {data.pageQuery.edges.map(({ node }, i) => (
+                <BlogItem key={node.id}>
+                  <Link
+                    to={node.frontmatter.path}
+                    css={{ textDecoration: `none`, color: `inherit` }}
+                    className="blog-title"
+                  >
+                    <div className="img-container">
+                      <img src={node.frontmatter.thumbnail} />
+                    </div>
+                    <BlogTitle>{node.frontmatter.title} </BlogTitle>
+                  </Link>
+                  <BlogDate>{node.frontmatter.date}</BlogDate>
+                  <BlogExcerpt>{node.excerpt}</BlogExcerpt>
+                </BlogItem>
+              ))}
+            </BlogWrapper>
 
-                    <BlogWrapper>
-                      {data.pageQuery.edges.map(({ node }, i) => (
-                        <BlogItem key={node.id}>
-                            <Link
-                                to={node.frontmatter.path}
-                                css={{ textDecoration: `none`, color: `inherit` }}
-                                className="blog-title"
-                            >
-                                <div className="img-container">
-                                  <img src={node.frontmatter.thumbnail} />
-                                </div>
-                                <BlogTitle>
-                                    {node.frontmatter.title}{" "}
-                                </BlogTitle>
-                            </Link>
-                            <BlogDate>{node.frontmatter.date}</BlogDate>
-                            <BlogExcerpt>{node.excerpt}</BlogExcerpt>
-                        </BlogItem>
-                      ))}
-                    </BlogWrapper>
+            {!isFirst && (
+              <BlogLink to={prevPage} rel="prev">
+                ← Previous Page
+              </BlogLink>
+            )}
+            {!isLast && (
+              <BlogLink to={nextPage} rel="next">
+                Next Page →
+              </BlogLink>
+            )}
+          </HomeBodyWrapper>
+        </HomeWrapper>
 
-                    {!isFirst && (
-                        <BlogLink to={prevPage} rel="prev">
-                        ← Previous Page
-                        </BlogLink>
-                    )}
-                    {!isLast && (
-                        <BlogLink to={nextPage} rel="next">
-                        Next Page →
-                        </BlogLink>
-                    )}
-                </HomeBodyWrapper>
-              </HomeWrapper>
-
-                {/* <div className="content blog-content">
+        {/* <div className="content blog-content">
                     <h1 className="main-title">
                         Faith's blog
                     </h1>
@@ -154,21 +163,21 @@ class Blog extends Component {
                         </Link>
                     )}
                 </div> */}
-            </div>
-        );
-    }   
-};
+      </div>
+    );
+  }
+}
 
-export default Blog
+export default Blog;
 
 export const query = graphql`
-query($skip: Int, $limit: Int) { 
+  query ($skip: Int, $limit: Int) {
     pageQuery: allMarkdownRemark(
-            sort: {fields: [frontmatter___date], order: DESC}, 
-            filter: {frontmatter: {path: {regex: "/^\/blog/"}}},
-            limit: $limit
-            skip: $skip
-        ) {
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { path: { regex: "/^/blog/" } } }
+      limit: $limit
+      skip: $skip
+    ) {
       totalCount
       edges {
         node {
@@ -186,18 +195,24 @@ query($skip: Int, $limit: Int) {
     }
 
     tagsQuery: allMarkdownRemark(
-            sort: {fields: [frontmatter___date], order: DESC}, 
-            filter: {frontmatter: {path: {regex: "/^\/blog/"}}},
-        ) {
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { path: { regex: "/^/blog/" } } }
+    ) {
       totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            tags
-          }
+      # edges {
+      #   node {
+      #     id
+      #     frontmatter {
+      #       tags
+      #     }
+      #   }
+      # }
+      nodes {
+        id
+        frontmatter {
+          tags
         }
       }
     }
-  }  
+  }
 `;

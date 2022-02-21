@@ -6,24 +6,24 @@
 
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
-const _ = require("lodash")
+const _ = require("lodash");
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-    const { createNodeField } = boundActionCreators
-    if (node.internal.type === `MarkdownRemark`) {
-        const slug = createFilePath({ node, getNode, basePath: `pages` })
-        createNodeField({
-            node,
-            name: `slug`,
-            value: slug,
-        })
-    }
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
+  }
 };
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
+  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
 
   return graphql(`
     {
@@ -40,9 +40,9 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      return Promise.reject(result.errors)
+      return Promise.reject(result.errors);
     }
 
     result.data.allFile.edges.forEach(({ node }) => {
@@ -50,46 +50,45 @@ exports.createPages = ({ actions, graphql }) => {
         path: node.childMarkdownRemark.frontmatter.path,
         component: blogPostTemplate,
         context: {}, // additional data can be passed via context
-      })
-    })
+      });
+    });
 
-    const posts = result.data.allFile.edges
+    const posts = result.data.allFile.edges;
     const postsPerPage = 6;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-        component: path.resolve('./src/templates/blog.js'),
+        component: path.resolve("./src/templates/blog.js"),
         context: {
           limit: postsPerPage,
           skip: i * postsPerPage,
           numPages,
-          currentPage: i + 1
+          currentPage: i + 1,
         },
       });
     });
 
+    let tags = [];
 
-    let tags = []
-
-    _.each(posts, edge => {
+    _.each(posts, (edge) => {
       if (_.get(edge, "node.childMarkdownRemark.frontmatter.tags")) {
-        tags = tags.concat(edge.node.childMarkdownRemark.frontmatter.tags)
+        tags = tags.concat(edge.node.childMarkdownRemark.frontmatter.tags);
       }
-    })
+    });
     // Eliminate duplicate tags
-    tags = _.uniq(tags)
+    tags = _.uniq(tags);
 
     // Make tag pages
-    tags.forEach(tag => {
+    tags.forEach((tag) => {
       createPage({
         path: `/tags/${_.kebabCase(tag)}/`,
         component: path.resolve(`src/templates/tags.js`),
         context: {
           tag,
         },
-      })
-    })
-  })
-}
+      });
+    });
+  });
+};
