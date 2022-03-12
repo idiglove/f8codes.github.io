@@ -60,7 +60,7 @@ exports.createPages = ({ actions, graphql }) => {
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-        component: path.resolve("./src/templates/blog.js"),
+        component: path.resolve("./src/templates/blog.tsx"),
         context: {
           limit: postsPerPage,
           skip: i * postsPerPage,
@@ -84,7 +84,7 @@ exports.createPages = ({ actions, graphql }) => {
     tags.forEach((tag) => {
       createPage({
         path: `/tags/${_.kebabCase(tag)}/`,
-        component: path.resolve(`src/templates/tags.js`),
+        component: path.resolve(`src/templates/tags.tsx`),
         context: {
           tag,
         },

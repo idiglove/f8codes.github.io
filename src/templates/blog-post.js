@@ -1,9 +1,7 @@
 import React from "react";
-import Header from "../pages/header";
 import "../css/style.css";
 import Disqus from "disqus-react";
 import { graphql } from "gatsby";
-import { Nav, Navbar } from "react-bootstrap";
 
 import ProfilePicPng from "./../img/pic.png";
 import {
@@ -12,13 +10,16 @@ import {
   HomeBodyWrapper,
   ProfilePicWrapper,
   ProfilePic,
-  HomeName,
-  HomeHeader,
-  MobileLinksNavbar,
 } from "./../styles/home-styles";
-import { BackLink, BlogWrapper, BlogPost } from "./../styles/blog-styles";
+import {
+  BackLink,
+  BlogWrapper,
+  BlogPost,
+  BlogPostNavLinks,
+  BlogPostTitle,
+} from "./../styles/blog-styles";
 
-export default ({ data }) => {
+const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark;
   const disqusShortname = "idiglove-github-io";
   const disqusConfig = {
@@ -28,31 +29,19 @@ export default ({ data }) => {
   };
   return (
     <div>
-      {/* <Header/> */}
-
       <HomeWrapper>
         <HomeSidebar>
           <ProfilePicWrapper>
             <ProfilePic src={ProfilePicPng} />
           </ProfilePicWrapper>
-          <HomeName>Faith Morante</HomeName>
-          <BackLink to={"/"}>Portfolio</BackLink>
-          <BackLink to={"/blog"}>Blog</BackLink>
-
-          <MobileLinksNavbar expand="lg" variant="dark">
-            <Navbar.Toggle aria-controls="main-navbar" />
-            <Navbar.Collapse id="main-navbar">
-              <Nav>
-                <li onClick={() => setContentOption(<About />)}>About</li>
-              </Nav>
-            </Navbar.Collapse>
-          </MobileLinksNavbar>
+          <BlogPostNavLinks>
+            <BackLink to={"/blog"}>Blog</BackLink>
+            <BackLink to={"/"}>Back to Portfolio</BackLink>
+          </BlogPostNavLinks>
         </HomeSidebar>
 
         <HomeBodyWrapper>
-          <HomeHeader>
-            <h1>{post.frontmatter.title}</h1>
-          </HomeHeader>
+          <BlogPostTitle>{post.frontmatter.title}</BlogPostTitle>
 
           <BlogWrapper>
             <BlogPost>
@@ -75,6 +64,8 @@ export default ({ data }) => {
     </div>
   );
 };
+
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query ($path: String!) {

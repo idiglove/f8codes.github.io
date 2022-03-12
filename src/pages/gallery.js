@@ -5,7 +5,7 @@ import "./../css/style.css";
 import "../fonts/fonts.css";
 import { Container, Row, Col } from "react-bootstrap";
 
-export default ({ data }) => {
+const GalleryPage =  ({ data }) => {
   return (
     <div>
       <Header />
@@ -27,6 +27,8 @@ export default ({ data }) => {
     </div>
   );
 };
+
+export default GalleryPage
 
 export const query = graphql`
   query galleryQuery {

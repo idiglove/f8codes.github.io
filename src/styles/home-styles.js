@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import homeImg from "./../img/header-bg.png";
-import { Nav, Navbar } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
 export const Appwrapper = styled.div`
   width: 100%;
@@ -92,7 +92,7 @@ export const MobileLinksNavbar = styled(Navbar)`
   width: 100px;
   position: relative;
   @media screen and (min-width: 600px) {
-    display: none;
+    display: none !important;
   }
 
   .navbar-collapse {
