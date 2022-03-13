@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import "../css/style.css";
 import Disqus from "disqus-react";
 import { graphql } from "gatsby";
@@ -10,16 +10,17 @@ import {
   HomeBodyWrapper,
   ProfilePicWrapper,
   ProfilePic,
-} from "./../styles/home-styles";
+} from "../styles/home-styles";
 import {
   BackLink,
   BlogWrapper,
   BlogPost,
   BlogPostNavLinks,
   BlogPostTitle,
-} from "./../styles/blog-styles";
+} from "../styles/blog-styles";
+import Seo from "../components/Seo";
 
-const BlogPostTemplate = ({ data }) => {
+const BlogPostTemplate: FunctionComponent<Props> = ({ data }) => {
   const post = data.markdownRemark;
   const disqusShortname = "idiglove-github-io";
   const disqusConfig = {
@@ -29,6 +30,13 @@ const BlogPostTemplate = ({ data }) => {
   };
   return (
     <div>
+      <Seo
+        title={post.frontmatter.title}
+        description={post.frontmatter.title}
+        image={post.frontmatter.thumbnail}
+        isArticle
+        link={post.frontmatter.path}
+      />
       <HomeWrapper>
         <HomeSidebar>
           <ProfilePicWrapper>
@@ -67,6 +75,20 @@ const BlogPostTemplate = ({ data }) => {
 
 export default BlogPostTemplate;
 
+type Props = {
+  data: {
+    markdownRemark: {
+      html: string;
+      frontmatter: {
+        date: string;
+        path: string;
+        title: string;
+        thumbnail: string;
+      };
+    };
+  };
+};
+
 export const pageQuery = graphql`
   query ($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
@@ -75,6 +97,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        thumbnail
       }
     }
   }
