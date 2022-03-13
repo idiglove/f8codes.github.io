@@ -3,8 +3,6 @@ import get from "lodash/get";
 import uniq from "lodash/uniq";
 import Link from "gatsby-link";
 import kebabCase from "lodash/kebabCase";
-import { navigate } from "gatsby";
-import { Nav, Navbar } from "react-bootstrap";
 import React, { FunctionComponent } from "react";
 
 import ProfilePicPng from "./../../img/pic.png";
@@ -14,10 +12,8 @@ import {
   HomeBodyWrapper,
   ProfilePicWrapper,
   ProfilePic,
-  HomeName,
   SidebarLinks,
   HomeHeader,
-  MobileLinksNavbar,
 } from "./../../styles/home-styles";
 import {
   BlogWrapper,

@@ -55,6 +55,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/react-helmet": "^6.1.5",
     "sass": "^1.49.9"
   }
 }
