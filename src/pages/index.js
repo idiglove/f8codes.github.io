@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import "./../scss/style.scss";
-import { Helmet } from "react-helmet";
-import "bootstrap/dist/css/bootstrap.css";
-import "react-sticky-header/styles.css";
-import { Nav, Navbar } from "react-bootstrap";
-import "react-sweet-progress/lib/style.css";
-import Link from "gatsby-link";
-import "../fonts/fonts.css";
-import About from "./../components/About";
-import Skills from "./../components/Skills";
-import Education from "./../components/Education";
-import Portfolio from "./../components/Portfolio";
-import ProfilePicPng from "./../img/pic.png";
+import React, { useState } from "react"
+import "./../scss/style.scss"
+import { Helmet } from "react-helmet"
+import "bootstrap/dist/css/bootstrap.css"
+import "react-sticky-header/styles.css"
+import { Nav, Navbar } from "react-bootstrap"
+import "react-sweet-progress/lib/style.css"
+import Link from "gatsby-link"
+import "../fonts/fonts.css"
+import About from "./../components/About"
+import Skills from "./../components/Skills"
+import Education from "./../components/Education"
+import Portfolio from "./../components/Portfolio"
+import ProfilePicPng from "./../img/pic.png"
 
 import {
   Appwrapper,
@@ -24,10 +24,10 @@ import {
   SidebarLinks,
   HomeHeader,
   MobileLinksNavbar,
-} from "./../styles/home-styles";
+} from "./../styles/home-styles"
 
 export default function Index() {
-  const [contentOption, setContentOption] = useState(<About />);
+  const [contentOption, setContentOption] = useState(<About />)
 
   return (
     <Appwrapper>
@@ -35,60 +35,27 @@ export default function Index() {
         <title>Faith Morante - Full Stack Web Developer</title>
         <meta
           name="description"
-          content="Faith Morante - Full Stack Web Developer"
+          content="Faith Morante - Full Stack Web Developer - React expert, create custom apps, blogs, ecommerce"
         />
       </Helmet>
 
       <HomeWrapper>
-        <HomeSidebar>
-          <ProfilePicWrapper>
-            <ProfilePic src={ProfilePicPng} />
-          </ProfilePicWrapper>
-          <HomeName>Faith Morante</HomeName>
-          <SidebarLinks>
-            <li onClick={() => setContentOption(<About />)}>About</li>
-            <li onClick={() => setContentOption(<Skills />)}>Skills</li>
-            <li onClick={() => setContentOption(<Education />)}>Education</li>
-            <li onClick={() => setContentOption(<Portfolio />)}>Portfolio</li>
-            <li>Testimonials</li>
-            <li>
-              <Link to="/blog">Blog</Link>
-            </li>
-          </SidebarLinks>
-
-          <MobileLinksNavbar expand="lg" variant="dark">
-            <Navbar.Toggle aria-controls="main-navbar" />
-            <Navbar.Collapse id="main-navbar">
-              <Nav>
-                <li onClick={() => setContentOption(<About />)}>About</li>
-                <li onClick={() => setContentOption(<Skills />)}>Skills</li>
-                <li onClick={() => setContentOption(<Education />)}>
-                  Education
-                </li>
-                <li onClick={() => setContentOption(<Portfolio />)}>
-                  Portfolio
-                </li>
-                <li>Testimonials</li>
-                <li>
-                  <Link to="/blog">Blog</Link>
-                </li>
-              </Nav>
-            </Navbar.Collapse>
-          </MobileLinksNavbar>
-        </HomeSidebar>
-
-        <HomeBodyWrapper>
-          <HomeHeader>
-            Software Engineer
-            <br />
-            Web and Mobile Development
-          </HomeHeader>
-
-          {/* <HomeContent> */}
-          {<>{contentOption}</>}
-          {/* </HomeContent> */}
-        </HomeBodyWrapper>
+        <video
+          autoPlay
+          muted
+          loop
+          id="myVideo"
+          src="/assets/abstract-blue-video.mp4"
+        ></video>
+        <h1>
+          Hi! <br /> I'm Faith Morante!
+        </h1>
       </HomeWrapper>
+
+      <p>test padsa</p>
+      <p>test padsa</p>
+      <p>test padsa</p>
+      <p>test padsa</p>
     </Appwrapper>
-  );
+  )
 }

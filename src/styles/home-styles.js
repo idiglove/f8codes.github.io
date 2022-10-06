@@ -1,19 +1,37 @@
-import styled from "styled-components";
-import homeImg from "./../img/header-bg.png";
-import { Navbar } from "react-bootstrap";
+import styled from "styled-components"
+import homeImg from "./../img/header-bg.png"
+import { Navbar } from "react-bootstrap"
 
 export const Appwrapper = styled.div`
   width: 100%;
   height: 100%;
-  overflow: hidden;
-`;
+  /* overflow: hidden; */
+`
 
 export const HomeWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vw;
   overflow: hidden;
   display: flex;
-`;
+  /* 
+  @media only screen and (min-width: 1024px) {
+    max-height: 720px;
+  } */
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h1 {
+    position: absolute;
+    color: white;
+    font-size: 6rem;
+    margin-left: 5rem;
+    margin-top: 10rem;
+  }
+`
 
 export const HomeSidebar = styled.div`
   width: 20%;
@@ -33,7 +51,7 @@ export const HomeSidebar = styled.div`
     z-index: 999;
     justify-content: space-between;
   }
-`;
+`
 
 export const HomeBodyWrapper = styled.div`
   width: 80%;
@@ -56,7 +74,7 @@ export const HomeBodyWrapper = styled.div`
     left: 0;
     position: relative;
   }
-`;
+`
 
 export const ProfilePicWrapper = styled.div`
   width: 80%;
@@ -68,13 +86,13 @@ export const ProfilePicWrapper = styled.div`
   @media only screen and (max-width: 500px) {
     width: 20%;
   }
-`;
+`
 
 export const ProfilePic = styled.img`
   object-fit: contain;
   width: 100%;
   height: 100%;
-`;
+`
 
 export const HomeName = styled.h2`
   font-size: 1.2rem;
@@ -86,7 +104,7 @@ export const HomeName = styled.h2`
     margin-top: 0;
     margin-left: 1rem;
   }
-`;
+`
 
 export const MobileLinksNavbar = styled(Navbar)`
   width: 100px;
@@ -117,7 +135,7 @@ export const MobileLinksNavbar = styled(Navbar)`
   @media only screen and (min-width: 500px) {
     display: none;
   }
-`;
+`
 
 export const SidebarLinks = styled.ul`
   list-style: none;
@@ -139,13 +157,13 @@ export const SidebarLinks = styled.ul`
   @media only screen and (max-width: 500px) {
     display: none;
   }
-`;
+`
 
 export const HomeHeader = styled.h1`
   font-size: 1.6rem;
   text-transform: uppercase;
   padding: 2rem;
-`;
+`
 
 export const HomeContent = styled.div`
   width: 100%;
@@ -157,26 +175,26 @@ export const HomeContent = styled.div`
   @media only screen and (max-width: 500px) {
     height: auto;
   }
-`;
+`
 
 export const ContentWrapper = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
   width: 70%;
-`;
+`
 
 export const ContentParagraph = styled.div`
   font-size: 1rem;
   margin-bottom: 1rem;
   height: auto;
   text-align: center;
-`;
+`
 
 export const ContactWrapper = styled.div`
   width: 100%;
   height: auto;
-`;
+`
 
 export const ContactList = styled.ul`
   list-style: none;
@@ -196,13 +214,13 @@ export const ContactList = styled.ul`
   li {
     margin-bottom: 1rem;
   }
-`;
+`
 
 export const EducationWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-`;
+`
 
 export const SkillsContentWrapper = styled.div`
   width: 100%;
@@ -210,24 +228,24 @@ export const SkillsContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 export const SkillsTitle = styled.h3`
   font-size: 1rem;
   text-transform: uppercase;
-`;
+`
 
 export const SkillsWrapper = styled.div`
   display: flex;
   width: 80%;
   margin-bottom: 2rem;
-`;
+`
 
 export const SkillsColumn = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
-`;
+`
 
 export const SkillsList = styled.ul`
   list-style: none;
@@ -237,7 +255,7 @@ export const SkillsList = styled.ul`
   li {
     padding: 0.5rem;
   }
-`;
+`
 
 export const SkillsListTitle = styled.h4`
   text-transform: uppercase;
@@ -245,27 +263,27 @@ export const SkillsListTitle = styled.h4`
   border-bottom: 1px white solid;
   padding: 0.2rem;
   display: inline-block;
-`;
+`
 
 export const InterestsColumn = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: center;
-`;
+`
 
 export const PortfolioContentWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-`;
+`
 
 export const PortfolioWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: auto;
   margin-bottom: 2rem;
-`;
+`
 
 export const PortfolioRow = styled.div`
   display: flex;
@@ -274,24 +292,24 @@ export const PortfolioRow = styled.div`
   @media only screen and (max-width: 500px) {
     flex-direction: column;
   }
-`;
+`
 
 export const PortfolioDesc = styled.div`
   width: 300px;
   padding: 1rem;
   font-size: 0.8rem;
   align-self: center;
-`;
+`
 
 export const PortfolioDescTitle = styled.h4`
   font-size: 1rem;
   margin-bottom: 1rem;
-`;
+`
 
 export const PortfolioDescText = styled.h4`
   font-size: 0.8rem;
   margin-bottom: 1rem;
-`;
+`
 
 export const PortfolioDescList = styled.ul`
   list-style: none;
@@ -301,7 +319,7 @@ export const PortfolioDescList = styled.ul`
   li {
     margin-bottom: 0.7rem;
   }
-`;
+`
 
 export const PortfolioImgWrapper = styled.div`
   overflow: hidden;
@@ -324,4 +342,4 @@ export const PortfolioImgWrapper = styled.div`
   @media only screen and (max-width: 500px) {
     width: 80%;
   }
-`;
+`
