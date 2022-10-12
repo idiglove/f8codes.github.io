@@ -10,26 +10,41 @@ export const Appwrapper = styled.div`
 
 export const HomeWrapper = styled.div`
   width: 100%;
-  height: 100vw;
+  height: 100vh;
   overflow: hidden;
   display: flex;
-  /* 
-  @media only screen and (min-width: 1024px) {
-    max-height: 720px;
-  } */
+  background: black;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 
   video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
   }
 
   h1 {
-    position: absolute;
+    position: relative;
+    display: block;
+    align-self: center;
     color: white;
-    font-size: 6rem;
-    margin-left: 5rem;
-    margin-top: 10rem;
+    overflow-y: scroll;
+    font-size: 4rem;
+    margin: 0 2rem;
+    max-height: 350px;
+    max-width: 1024px;
+
+    @media only screen and (min-width: 1024px) {
+      font-size: 6rem;
+      margin: 0 auto;
+      /* margin: 0 10rem; */
+      /* max-height: 350px; */
+    }
+
+    &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
   }
 `
 
