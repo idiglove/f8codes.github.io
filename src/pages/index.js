@@ -7,31 +7,21 @@ import { Nav, Navbar } from "react-bootstrap"
 import "react-sweet-progress/lib/style.css"
 import Link from "gatsby-link"
 import "../fonts/fonts.css"
-import About from "./../components/About"
-import Skills from "./../components/Skills"
-import Education from "./../components/Education"
-import Portfolio from "./../components/Portfolio"
-import ProfilePicPng from "./../img/pic.png"
+import CaretDown from "./../components/Common/Icons/CaretDown"
+import CaretUp from "./../components/Common/Icons/CaretUp"
 
-import {
-  Appwrapper,
-  HomeWrapper,
-  HomeSidebar,
-  HomeBodyWrapper,
-  ProfilePicWrapper,
-  ProfilePic,
-  HomeName,
-  SidebarLinks,
-  HomeHeader,
-  MobileLinksNavbar,
-} from "./../styles/home-styles"
+import { Appwrapper, HomeWrapper } from "./../styles/home-styles"
 
 export default function Index() {
+  const [hasScrolledDown, setHasScrolledDown] = useState(false)
+  const [hasScrolledUp, setHasScrolledUp] = useState(true)
+
   useEffect(() => {
     const h1 = document.getElementsByTagName("h1")?.[0]
     document.addEventListener("wheel", (e) => {
       if (h1) {
         h1.scrollBy(e.deltaX, e.deltaY)
+        toggleArrow(h1)
       }
     })
 
@@ -51,9 +41,30 @@ export default function Index() {
 
       if (h1) {
         h1.scrollBy(deltaX, deltaY)
+        toggleArrow(h1)
       }
     }
   }, [])
+
+  const toggleArrow = (el) => {
+    if (el.scrollHeight - el.scrollTop === el.clientHeight) {
+      setHasScrolledDown(true)
+      setHasScrolledUp(false)
+    }
+
+    if (el.scrollTop === 0) {
+      setHasScrolledDown(false)
+      setHasScrolledUp(true)
+    }
+  }
+
+  const onScrollClick = (type) => {
+    const scrollNum = type === "down" ? 100 : -100
+    const h1 = document.getElementsByTagName("h1")?.[0]
+    h1.scrollBy(0, scrollNum)
+
+    toggleArrow(h1)
+  }
 
   return (
     <Appwrapper>
@@ -61,7 +72,7 @@ export default function Index() {
         <title>Faith Morante - Full Stack Web Developer</title>
         <meta
           name="description"
-          content="Faith Morante - Full Stack Web Developer - React expert, create custom apps, blogs, ecommerce"
+          content="Faith Morante - Full Stack Web Developer - React and NodeJS expert, create custom apps, blogs, ecommerce"
         />
       </Helmet>
 
@@ -87,6 +98,8 @@ export default function Index() {
           Hire me. <br />
           Or join my Discord for free mentorship.
         </h1>
+        {hasScrolledDown && <CaretUp onClick={() => onScrollClick("up")} />}
+        {hasScrolledUp && <CaretDown onClick={() => onScrollClick("down")} />}
       </HomeWrapper>
 
       {/* <p>test padsa</p>

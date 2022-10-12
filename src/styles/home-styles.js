@@ -13,6 +13,9 @@ export const HomeWrapper = styled.div`
   height: 100vh;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: black;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
@@ -30,7 +33,7 @@ export const HomeWrapper = styled.div`
     align-self: center;
     color: white;
     overflow-y: scroll;
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin: 0 2rem;
     max-height: 350px;
     max-width: 1024px;
@@ -45,6 +48,12 @@ export const HomeWrapper = styled.div`
     &::-webkit-scrollbar {
       display: none; /* Safari and Chrome */
     }
+  }
+  svg {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    cursor: pointer;
   }
 `
 
