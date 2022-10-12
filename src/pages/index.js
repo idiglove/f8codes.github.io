@@ -13,8 +13,7 @@ import CaretUp from "./../components/Common/Icons/CaretUp"
 import { Appwrapper, HomeWrapper } from "./../styles/home-styles"
 
 export default function Index() {
-  const [hasScrolledDown, setHasScrolledDown] = useState(false)
-  const [hasScrolledUp, setHasScrolledUp] = useState(true)
+  const [showArrowDown, setShowArrowDown] = useState(true)
 
   useEffect(() => {
     const h1 = document.getElementsByTagName("h1")?.[0]
@@ -48,13 +47,11 @@ export default function Index() {
 
   const toggleArrow = (el) => {
     if (el.scrollHeight - el.scrollTop === el.clientHeight) {
-      setHasScrolledDown(true)
-      setHasScrolledUp(false)
+      setShowArrowDown(false)
     }
 
     if (el.scrollTop === 0) {
-      setHasScrolledDown(false)
-      setHasScrolledUp(true)
+      setShowArrowDown(true)
     }
   }
 
@@ -98,8 +95,11 @@ export default function Index() {
           Hire me. <br />
           Or join my Discord for free mentorship.
         </h1>
-        {hasScrolledDown && <CaretUp onClick={() => onScrollClick("up")} />}
-        {hasScrolledUp && <CaretDown onClick={() => onScrollClick("down")} />}
+        {showArrowDown ? (
+          <CaretDown onClick={() => onScrollClick("down")} />
+        ) : (
+          <CaretUp onClick={() => onScrollClick("up")} />
+        )}
       </HomeWrapper>
 
       {/* <p>test padsa</p>
