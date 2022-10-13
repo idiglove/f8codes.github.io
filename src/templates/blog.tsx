@@ -1,24 +1,24 @@
-import React, { FunctionComponent } from "react";
-import { graphql } from "gatsby";
-import BlogHomepage from "./../components/BlogHomepage";
-import { PageQuery, TagsQuery } from "./query.types";
+import React, { FunctionComponent } from "react"
+import { graphql } from "gatsby"
+import BlogHomepage from "../components/BlogHomepage"
+import { PageQuery, TagsQuery } from "./query.types"
 
 const Blog: FunctionComponent<Props> = ({ data, pageContext }) => {
-  return <BlogHomepage data={data} navigation={{ pageContext }} />;
-};
+  return <BlogHomepage data={data} navigation={{ pageContext }} />
+}
 
-export default Blog;
+export default Blog
 
 type Props = {
   data: {
-    tagsQuery: TagsQuery;
-    pageQuery: PageQuery;
-  };
+    tagsQuery: TagsQuery
+    pageQuery: PageQuery
+  }
   pageContext: {
-    currentPage: number;
-    numPages: number;
-  };
-};
+    currentPage: number
+    numPages: number
+  }
+}
 
 export const query = graphql`
   query ($skip: Int, $limit: Int) {
@@ -57,4 +57,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

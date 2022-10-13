@@ -78,16 +78,10 @@ export const HomeSidebar = styled.div`
 `
 
 export const HomeBodyWrapper = styled.div`
-  width: 80%;
-  background-image: url(${homeImg});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background: black;
   color: #fff;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  left: 20%;
   overflow: auto;
   height: 100%;
 
